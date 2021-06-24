@@ -82,8 +82,9 @@ namespace OvertimeRequest.Repository.Data
                     Salary = e.Salary,
                     Email = e.Email,
                     Phone = e.Phone,
-                    ManagerId = e.ManagerId
-
+                    ManagerId = e.ManagerId,
+                    RoleId = ar.RoleId
+                   
                 }).ToList();
             return all;
             
