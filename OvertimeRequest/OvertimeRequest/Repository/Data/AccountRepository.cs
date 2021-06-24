@@ -73,6 +73,7 @@ namespace OvertimeRequest.Repository.Data
                 join ar in conn.AccountRoles on a.AccountId equals ar.AccountId
                 select new RegisterVM
                 {
+                    NIP = e.NIP,
                     FirstName = e.FirstName,
                     LastName = e.LastName,
                     BirthDate = e.BirthDate,
@@ -85,8 +86,6 @@ namespace OvertimeRequest.Repository.Data
 
                 }).ToList();
             return all;
-                
-
             
         }
     }
