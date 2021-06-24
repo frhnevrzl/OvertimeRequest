@@ -65,5 +65,30 @@ namespace OvertimeRequest.Repository.Data
             }
             return result;
         }
+        public IEnumerable<RegisterVM> GetAllProfile()
+        {
+            var all = (
+                from e in conn.Employees
+                join a in conn.Accounts on e.NIP equals a.AccountId
+                join ar in conn.AccountRoles on a.AccountId equals ar.AccountId
+                select new RegisterVM
+                {
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    BirthDate = e.BirthDate,
+                    Gender = e.Gender,
+                    Religion = e.Religion,
+                    Salary = e.Salary,
+                    Email = e.Email,
+                    Phone = e.Phone,
+                    ManagerId = e.ManagerId
+
+                }).ToList();
+            return all;
+                
+
+            
+        }
     }
+
 }
