@@ -12,9 +12,9 @@ namespace OvertimeRequest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeController : BaseController<Employee, EmployeeRepository, int>
+    public class AccountRoleController : BaseController<AccountRole, AccountRoleRepository, int>
     {
-        public EmployeeController(EmployeeRepository employee) : base(employee)
+        public AccountRoleController(AccountRoleRepository accountrole) : base(accountrole)
         {
         }
     }
