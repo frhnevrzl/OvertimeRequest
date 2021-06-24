@@ -10,8 +10,8 @@ using OvertimeRequest.Context;
 namespace OvertimeRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210624043138_first-migration")]
-    partial class firstmigration
+    [Migration("20210624051507_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
