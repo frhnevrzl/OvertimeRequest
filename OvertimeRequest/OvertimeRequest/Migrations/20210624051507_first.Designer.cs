@@ -10,8 +10,13 @@ using OvertimeRequest.Context;
 namespace OvertimeRequest.Migrations
 {
     [DbContext(typeof(MyContext))]
+<<<<<<< HEAD:OvertimeRequest/OvertimeRequest/Migrations/20210624050707_firstmigration.Designer.cs
+    [Migration("20210624050707_firstmigration")]
+    partial class firstmigration
+=======
     [Migration("20210624051507_first")]
     partial class first
+>>>>>>> origin/Farhan:OvertimeRequest/OvertimeRequest/Migrations/20210624051507_first.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
