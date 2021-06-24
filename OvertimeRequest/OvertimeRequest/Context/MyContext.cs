@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OvertimeRequest.Models;
+using OvertimeRequest.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,30 +24,36 @@ namespace OvertimeRequest.Context
         public DbSet<OvertimeApply> OvertimeApplies { get; set; }
         public DbSet<OvertimeApplyEmployee> overtimeApplyEmployees { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<RegisterVM> RegisterVM { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>()
                 .HasOne(p => p.Department)
-                .WithOne(a => a.Employee)
-                .HasForeignKey<Department>(a => a.DepartmentId);
+                .WithMany(a => a.Employee);
+
             modelBuilder.Entity<Employee>()
                 .HasOne(p => p.Account)
                 .WithOne(a => a.Employee)
                 .HasForeignKey<Account>(a => a.AccountId);
+
             modelBuilder.Entity<Role>()
                 .HasMany(p => p.AccountRoles)
                 .WithOne(a => a.Role);
+
             modelBuilder.Entity<Account>()
                 .HasMany(a => a.AccountRoles)
                 .WithOne(ar => ar.Account);
+
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.OvertimeApplyEmployees)
                 .WithOne(oe => oe.Employee);
+
             modelBuilder.Entity<OvertimeApply>()
                 .HasMany(oa => oa.OvertimeApplyEmployees)
                 .WithOne(oe => oe.OvertimeApply);
 
             modelBuilder.Entity<AccountRole>().HasKey(ar => new { ar.AccountId, ar.RoleId });
+            modelBuilder.Entity<RegisterVM>().HasNoKey();
         }
 
     }
