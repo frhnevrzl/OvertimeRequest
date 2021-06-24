@@ -17,6 +17,8 @@ namespace OvertimeRequest.Models
         public DateTime EndTime { get; set; }
         public string Task { get; set; }
         public int AdditionalSalary { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual OvertimeApply OvertimeApply { get; set; }
 
     }
 }

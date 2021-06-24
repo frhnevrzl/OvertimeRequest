@@ -13,6 +13,7 @@ namespace OvertimeRequest.Models
         [Key]
         public int AccountId { get; set; }
         public string Password { get; set; }
+        public virtual Employee Employee { get; set; }
         public virtual ICollection<AccountRole> AccountRoles { get; set; }
 
 

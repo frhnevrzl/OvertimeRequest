@@ -14,6 +14,8 @@ namespace OvertimeRequest.Models
         public int OvertimeId { get; set; }
         public string OvertimeName { get; set; }
         public DateTime SubmissionDate { get; set; }
+        public virtual ICollection<OvertimeApplyEmployee> OvertimeApplyEmployees { get; set; }
+
 
     }
 }
