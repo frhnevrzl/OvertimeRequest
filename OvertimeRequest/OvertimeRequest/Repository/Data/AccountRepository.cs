@@ -18,6 +18,19 @@ namespace OvertimeRequest.Repository.Data
             this.conn = conn;
             registers = conn.Set<RegisterVM>();
         }
+        private static string GenerateSalt()
+        {
+            return BCrypt.Net.BCrypt.GenerateSalt();
+        }
+        private static string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password, GenerateSalt());
+        }
+
+        private static bool ValidatePassword(string password, string correcthash)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, correcthash);
+        }
 
         public int Register(RegisterVM register)
         {
@@ -43,7 +56,7 @@ namespace OvertimeRequest.Repository.Data
                 Account account = new Account
                 {
                     AccountId = employee.NIP,
-                    Password = register.Password
+                    Password = HashPassword(register.Password)
                 };
                 conn.Add(account);
                 result = conn.SaveChanges();
@@ -89,6 +102,18 @@ namespace OvertimeRequest.Repository.Data
                 
 
             
+        }
+        public int Login(LoginVM login)
+        {
+            var res = 0;
+            var check = conn.Employees.FirstOrDefault(e => e.Email == login.Email);
+            if (check != null && ValidatePassword(login.Password, check.Account.Password))
+            {
+                res = 1;
+            }
+            else
+                res = 0;
+            return res;
         }
     }
 

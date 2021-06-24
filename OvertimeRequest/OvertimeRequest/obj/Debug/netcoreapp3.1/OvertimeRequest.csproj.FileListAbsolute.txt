@@ -143,3 +143,13 @@ C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeReque
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\EntityFramework.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequest\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll

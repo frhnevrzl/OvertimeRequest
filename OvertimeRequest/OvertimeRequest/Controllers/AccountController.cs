@@ -46,5 +46,20 @@ namespace OvertimeRequest.Controllers
             }
         }
 
+        [HttpPost("Login")]
+        //[Route("Login")]
+        public ActionResult Login(LoginVM loginvm)
+        {
+            var login = repo.Login(loginvm);
+
+            if (login > 0)
+            {
+                return Ok("Login Berhasil");
+            }
+            else
+                return BadRequest("Login Gagal");
+        }
+
+
     }
 }
