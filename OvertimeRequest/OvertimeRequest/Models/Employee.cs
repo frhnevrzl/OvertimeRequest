@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace OvertimeRequest.Models
 {
+    [Table("TB_M_Employee")]
     public class Employee
     {
+        [Key]
         public int NIP { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
