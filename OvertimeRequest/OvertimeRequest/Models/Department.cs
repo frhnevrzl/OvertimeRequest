@@ -14,5 +14,6 @@ namespace OvertimeRequest.Models
         public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
         public string DepartmentLoc { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }
