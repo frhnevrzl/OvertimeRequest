@@ -1,11 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using OvertimeRequest.Context;
 using OvertimeRequest.Models;
 using OvertimeRequest.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace OvertimeRequest.Repository.Data
 {
@@ -13,10 +18,12 @@ namespace OvertimeRequest.Repository.Data
     {
         MyContext conn;
         private readonly DbSet<RegisterVM> registers;
-        public AccountRepository(MyContext conn) : base(conn) 
+        public IConfiguration _configuration;
+        public AccountRepository(MyContext conn, IConfiguration _configuration) : base(conn) 
         {
             this.conn = conn;
             registers = conn.Set<RegisterVM>();
+            this._configuration = _configuration;
         }
         private static string GenerateSalt()
         {
@@ -114,6 +121,27 @@ namespace OvertimeRequest.Repository.Data
             else
                 res = 0;
             return res;
+        }
+        public string GenerateToken(LoginVM login)
+        {
+            var search = conn.Employees.SingleOrDefault(p => p.Email == login.Email);
+            var searchRole = conn.AccountRoles.SingleOrDefault(p => p.AccountId == search.NIP);
+
+
+            var claims = new List<Claim>
+            {
+                new Claim("Email", search.Email),
+                //new Claim(ClaimTypes.Role, searchRole.Roles.RoleName)
+                new Claim("role", searchRole.Role.RoleName)
+
+            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var signin = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audience"], claims,
+                signingCredentials: signin, expires: DateTime.UtcNow.AddDays(1));
+            var tokenwrite = new JwtSecurityTokenHandler().WriteToken(token);
+            claims.Add(new Claim("TokenSecurity", tokenwrite.ToString()));
+            return tokenwrite;
         }
     }
 

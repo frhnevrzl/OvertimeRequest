@@ -52,12 +52,24 @@ namespace OvertimeRequest.Controllers
         {
             var login = repo.Login(loginvm);
 
-            if (login > 0)
+            if (login == 404)
             {
-                return Ok("Login Berhasil");
+                return BadRequest("Email Belum Terdaftar");
+            }
+            else if (login == 401)
+            {
+                return BadRequest("Password Salah");
+            }
+            else if (login == 1)
+            {
+                return Ok(new JWTokenVM
+                {
+                    Token = repo.GenerateToken(loginvm),
+                    Message = "Login Sukses"
+                });
             }
             else
-                return BadRequest("Login Gagal");
+                return BadRequest("Gagal Login");
         }
 
 
