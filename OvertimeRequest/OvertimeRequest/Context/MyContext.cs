@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OvertimeRequest.Models;
+using OvertimeRequest.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace OvertimeRequest.Context
         public DbSet<OvertimeApply> OvertimeApplies { get; set; }
         public DbSet<OvertimeApplyEmployee> overtimeApplyEmployees { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<RegisterVM> RegisterVM { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>()
@@ -51,6 +53,7 @@ namespace OvertimeRequest.Context
                 .WithOne(oe => oe.OvertimeApply);
 
             modelBuilder.Entity<AccountRole>().HasKey(ar => new { ar.AccountId, ar.RoleId });
+            modelBuilder.Entity<RegisterVM>().HasNoKey();
         }
 
     }
