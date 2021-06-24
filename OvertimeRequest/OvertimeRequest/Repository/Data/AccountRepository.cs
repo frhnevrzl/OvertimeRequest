@@ -55,12 +55,13 @@ namespace OvertimeRequest.Repository.Data
                 //conn.Add(department);
                 //result = conn.SaveChanges();
 
-                Role role = new Role
+                AccountRole accountRole = new AccountRole
                 {
-                    RoleId = register.RoleId
+                    AccountId = account.AccountId,
+                    RoleId = 3
                 };
-                conn.Add(role);
-                return result = conn.SaveChanges();
+                conn.Add(accountRole);
+                result = conn.SaveChanges();
             }
             return result;
         }
