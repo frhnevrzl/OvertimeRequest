@@ -32,5 +32,19 @@ namespace OvertimeRequest.Controllers
             else
                 return BadRequest("Email Duplicate, Try New Email");
         }
+        [HttpGet("GetAllProfile")]
+        public ActionResult GetAllProfile()
+        {
+            var get = repo.GetAllProfile();
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+            {
+                return NotFound("Data tidak Ada");
+            }
+        }
+
     }
 }
