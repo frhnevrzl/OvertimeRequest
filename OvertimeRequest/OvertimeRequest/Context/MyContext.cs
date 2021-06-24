@@ -27,21 +27,25 @@ namespace OvertimeRequest.Context
         {
             modelBuilder.Entity<Employee>()
                 .HasOne(p => p.Department)
-                .WithOne(a => a.Employee)
-                .HasForeignKey<Department>(a => a.DepartmentId);
+                .WithMany(a => a.Employee);
+
             modelBuilder.Entity<Employee>()
                 .HasOne(p => p.Account)
                 .WithOne(a => a.Employee)
                 .HasForeignKey<Account>(a => a.AccountId);
+
             modelBuilder.Entity<Role>()
                 .HasMany(p => p.AccountRoles)
                 .WithOne(a => a.Role);
+
             modelBuilder.Entity<Account>()
                 .HasMany(a => a.AccountRoles)
                 .WithOne(ar => ar.Account);
+
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.OvertimeApplyEmployees)
                 .WithOne(oe => oe.Employee);
+
             modelBuilder.Entity<OvertimeApply>()
                 .HasMany(oa => oa.OvertimeApplyEmployees)
                 .WithOne(oe => oe.OvertimeApply);
