@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OvertimeRequest.ViewModels
 {
-    public class OvertimeRequest
+    public class OvertimeRequestVM
     {
         public int NIP { get; set; }
         public string Email { get; set; }

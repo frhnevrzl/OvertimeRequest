@@ -11,11 +11,9 @@ namespace OvertimeRequest.ViewModels
         public string OvertimeName { get; set; }
         public DateTime SubmissionDate { get; set; }
         public int NIP { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+        //public string Email { get; set; }
         public int AccountId { get; set; }
-        public int RoleId { get; set; }
+        //public int RoleId { get; set; }
         public List<OvertimeDetails> ListDetail { get; set; }
 
     }

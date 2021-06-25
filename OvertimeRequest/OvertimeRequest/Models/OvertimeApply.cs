@@ -14,7 +14,9 @@ namespace OvertimeRequest.Models
         public int OvertimeId { get; set; }
         public string OvertimeName { get; set; }
         public DateTime SubmissionDate { get; set; }
+        [DisplayFormat(DataFormatString = "{HH:mm:ss}")]
         public DateTime StartTime { get; set; }
+        [DisplayFormat(DataFormatString = "{HH:mm:ss}")]
         public DateTime EndTime { get; set; }
         public string Task { get; set; }
         public int AdditionalSalary { get; set; }

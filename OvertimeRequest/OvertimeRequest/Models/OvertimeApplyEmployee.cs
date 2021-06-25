@@ -12,9 +12,21 @@ namespace OvertimeRequest.Models
     {
         [Key]
         public int OvertimeEmployeeId { get; set; }
-        public string Status { get; set; }
+        public StatusRequest Status { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual OvertimeApply OvertimeApply { get; set; }
 
+    }
+    public enum StatusRequest
+    {
+
+        [Display(Name = "Waiting For Approval")]
+        Waiting = 0,
+        [Display(Name = "Request Approved By Manager")]
+        ApproveBySupervisor = 1,
+        [Display(Name = "Request Approved By Finance Dept")]
+        ApproveByRelatonalManager = 2,
+        [Display(Name = "Request Rejected")]
+        Reject = 3
     }
 }

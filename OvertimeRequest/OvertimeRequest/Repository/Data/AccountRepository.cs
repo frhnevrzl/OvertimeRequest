@@ -77,13 +77,6 @@ namespace OvertimeRequest.Repository.Data
                 conn.Add(account);
                 result = conn.SaveChanges();
 
-                //Department department = new Department
-                //{
-                //    DepartmentId = register.DepartmentId
-                //};
-                //conn.Add(department);
-                //result = conn.SaveChanges();
-
                 AccountRole accountRole = new AccountRole
                 {
                     AccountId = account.AccountId,
