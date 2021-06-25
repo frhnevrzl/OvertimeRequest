@@ -106,6 +106,7 @@ namespace OvertimeRequest.Repository.Data
                 res = 0;
             return res;
         }
+
         public IEnumerable<RegisterVM> GetAllProfile()
         {
             var all = (
