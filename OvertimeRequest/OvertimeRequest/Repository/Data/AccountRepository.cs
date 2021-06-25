@@ -17,9 +17,10 @@ namespace OvertimeRequest.Repository.Data
 {
     public class AccountRepository : GeneralRepository<MyContext, Account, int>
     {
-        MyContext conn;
+        private readonly MyContext conn;
         private readonly DbSet<RegisterVM> registers;
         private readonly Hashing hashing = new Hashing();
+        private readonly EmailHandler sendEmail = new EmailHandler();
         public IConfiguration _configuration;
         public AccountRepository(MyContext conn, IConfiguration _configuration) : base(conn) 
         {
@@ -98,6 +99,25 @@ namespace OvertimeRequest.Repository.Data
             else
                 res = 0;
             return res;
+        }
+
+        public int ResetPassword(string email)
+        {
+            string resetCode = Guid.NewGuid().ToString();
+            var getUser = conn.Employees.Where(e => e.Email == email).FirstOrDefault();
+            var getAcount = conn.Accounts.Where(a => a.AccountId == getUser.NIP).FirstOrDefault();
+            if (getUser == null)
+            {
+                return 0;
+            }
+            else
+            {
+                var password = Hashing.HashPassword(resetCode);
+                getAcount.Password = password;
+                var result = conn.SaveChanges();
+                sendEmail.SendNotification(resetCode, email);
+                return result;
+            }
         }
 
         public IEnumerable<RegisterVM> GetAllProfile()

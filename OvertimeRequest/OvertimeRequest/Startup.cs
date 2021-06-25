@@ -31,6 +31,11 @@ namespace OvertimeRequest
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+
             services.AddControllers();
 
             services.AddDbContext<MyContext>(options => options.UseLazyLoadingProxies()
@@ -77,6 +82,8 @@ namespace OvertimeRequest
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(options => options.WithOrigins("https://localhost:44308"));
 
             app.UseAuthentication();
 
