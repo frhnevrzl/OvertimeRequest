@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OvertimeRequest.Base;
 using OvertimeRequest.Models;
@@ -32,6 +33,7 @@ namespace OvertimeRequest.Controllers
             else
                 return BadRequest("Email Duplicate, Try New Email");
         }
+        [Authorize(Roles = "ADD2")]
         [HttpGet("GetAllProfile")]
         public ActionResult GetAllProfile()
         {
