@@ -14,7 +14,6 @@ namespace OvertimeRequest.Models
         public int OvertimeId { get; set; }
         public string OvertimeName { get; set; }
         public DateTime SubmissionDate { get; set; }
-        public string Status { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Task { get; set; }

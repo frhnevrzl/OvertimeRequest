@@ -12,6 +12,7 @@ namespace OvertimeRequest.Models
     {
         [Key]
         public int OvertimeEmployeeId { get; set; }
+        public string Status { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual OvertimeApply OvertimeApply { get; set; }
 
