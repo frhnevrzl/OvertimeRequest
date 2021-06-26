@@ -14,6 +14,6 @@ namespace OvertimeRequestFE.Repositories.Interface
         HttpStatusCode Post(T entity);
         HttpStatusCode Delete(X id);
         HttpStatusCode Put(X id, T entity);
-
+        //for
     }
 }

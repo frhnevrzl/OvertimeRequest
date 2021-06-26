@@ -39,5 +39,6 @@ namespace OvertimeRequestFE.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("login", "Login");
         }
+        //for
     }
 }
