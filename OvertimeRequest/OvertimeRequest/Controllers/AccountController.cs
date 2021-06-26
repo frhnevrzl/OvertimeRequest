@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OvertimeRequest.Base;
+using OvertimeRequest.Handler;
 using OvertimeRequest.Models;
 using OvertimeRequest.Repository.Data;
 using OvertimeRequest.ViewModels;
@@ -50,6 +51,18 @@ namespace OvertimeRequest.Controllers
                 return NotFound("Data tidak Ada");
             }
         }
+        //[Authorize(Roles = "Admin")]
+        [HttpGet("GetProfileById/{nip}")]
+        public ActionResult GetProfileById(int nip)
+        {
+            var get = repo.GetProfileById(nip);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+                return NotFound("No Record");
+        }
 
         [HttpPost("Login")]
         //[Route("Login")]
@@ -75,6 +88,24 @@ namespace OvertimeRequest.Controllers
             }
             else
                 return BadRequest("Gagal Login");
+        }
+        [HttpPut("ChangePassword")]
+        public ActionResult ChangePassword(ChangePasswordVM changePasswordVM)
+        {
+            var acc = repo.Get(int.Parse(changePasswordVM.NIP));
+            if (acc != null)
+            {
+                if (Hashing.ValidatePassword(changePasswordVM.OldPassword, acc.Password))
+                {
+                    var data = repo.ChangePassword(changePasswordVM);
+                    return Ok(data);
+                }
+                else
+                {
+                    return StatusCode(404, new { status = "404", message = "Wrong password" });
+                }
+            }
+            return NotFound();
         }
 
 

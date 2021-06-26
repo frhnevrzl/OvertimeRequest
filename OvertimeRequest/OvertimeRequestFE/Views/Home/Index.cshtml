@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
 }
 
 <div class="text-center">
@@ -13,6 +14,6 @@
        url: "https://localhost:44364/API/account/getallprofile/",
        success: function (result) {
            console.log(result);
-    }
+       }
     })
 </script> 

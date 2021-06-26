@@ -33,7 +33,8 @@ namespace OvertimeRequest
         {
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                //c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44308").AllowAnyMethod().AllowCredentials().AllowAnyHeader());
             });
 
             services.AddControllers();
@@ -83,8 +84,8 @@ namespace OvertimeRequest
 
             app.UseRouting();
 
-            app.UseCors(options => options.WithOrigins("https://localhost:44308"));
-
+            //app.UseCors(options => options.WithOrigins("https://localhost:44308"));
+            app.UseCors("AllowOrigin");
             app.UseAuthentication();
 
             app.UseAuthorization();

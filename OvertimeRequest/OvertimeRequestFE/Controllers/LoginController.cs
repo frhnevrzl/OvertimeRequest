@@ -7,6 +7,7 @@ using OvertimeRequestFE.Repositories.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace OvertimeRequestFE.Controllers
@@ -32,6 +33,12 @@ namespace OvertimeRequestFE.Controllers
             }
             HttpContext.Session.SetString("JWToken", jwToken.Token);
             return RedirectToAction("index", "home");
+        }
+        [HttpPost]
+        public async Task<HttpStatusCode> Register(RegisterVM registerVM)
+        {
+            var result = await repository.Register(registerVM);
+            return result;
         }
 
         public IActionResult Logout()

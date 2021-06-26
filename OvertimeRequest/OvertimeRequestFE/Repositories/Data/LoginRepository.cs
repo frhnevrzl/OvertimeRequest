@@ -7,6 +7,7 @@ using OvertimeRequestFE.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,14 @@ namespace OvertimeRequestFE.Repositories.Data
             }
             return token;
         }
+        public async Task<HttpStatusCode> Register(RegisterVM registerVM)
+        {
+            StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
+            var result = await httpClient.PostAsync(request + "register", content);
+            return result.StatusCode;
+        }
+
+
         //for
     }
 }

@@ -128,6 +128,36 @@ namespace OvertimeRequest.Repository.Data
                 join ar in conn.AccountRoles on a.AccountId equals ar.AccountId
                 select new RegisterVM
                 {
+                    NIP = e.NIP,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    BirthDate = e.BirthDate,
+                    Gender = e.Gender,
+                    Religion = e.Religion,
+                    Salary = e.Salary,
+                    Email = e.Email,
+                    Phone = e.Phone,
+                    ManagerId = e.ManagerId,
+                    RoleId = ar.RoleId,
+                    Password = ar.Account.Password
+                   
+                   
+                }).ToList();
+            return all;
+                
+
+            
+        }
+
+        public RegisterVM GetProfileById(int nip)
+        {
+            var get = (
+                from e in conn.Employees
+                join a in conn.Accounts on e.NIP equals a.AccountId
+                join ar in conn.AccountRoles on a.AccountId equals ar.AccountId
+                select new RegisterVM
+                {
+                    NIP = e.NIP,
                     FirstName = e.FirstName,
                     LastName = e.LastName,
                     BirthDate = e.BirthDate,
@@ -138,15 +168,18 @@ namespace OvertimeRequest.Repository.Data
                     Phone = e.Phone,
                     ManagerId = e.ManagerId,
                     RoleId = ar.RoleId
-                   
-                }).ToList();
-            return all;
-                
 
-            
+                }).ToList();
+            return get.FirstOrDefault(p => p.NIP == nip); ;
+
         }
-        
-        
+        public int ChangePassword(ChangePasswordVM changepasswordVM)
+        {
+            Account acc = conn.Accounts.Where(a => a.Employee.NIP == int.Parse(changepasswordVM.NIP)).FirstOrDefault();
+            acc.Password = Hashing.HashPassword(changepasswordVM.NewPassword);
+            var result = conn.SaveChanges();
+            return result;
+        }
     }
 
 }
