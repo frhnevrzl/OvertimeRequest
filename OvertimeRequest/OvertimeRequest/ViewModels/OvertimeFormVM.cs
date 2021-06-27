@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OvertimeRequest.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace OvertimeRequest.ViewModels
         public DateTime EndTime { get; set; }
         public string Task { get; set; }
         public int AdditionalSalary { get; set; }
+        public StatusRequest Status { get; set; }
 
     }
 }

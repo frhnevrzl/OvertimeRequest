@@ -43,24 +43,47 @@ namespace OvertimeRequest.Repository.Data
         //    else
         //        return 0;
         //}
+        public int ApplyRequest(OvertimeFormVM overtimeFormVM)
+        {
+            var overtimeApply = new OvertimeApply
+            {
+                OvertimeName = overtimeFormVM.OvertimeName,
+                SubmissionDate = overtimeFormVM.SubmissionDate,
+                StartTime = overtimeFormVM.StartTime,
+                EndTime = overtimeFormVM.EndTime,
+                Task = overtimeFormVM.Task,
+                AdditionalSalary = 100000
+            };
+            conn.Add(overtimeApply);
+            conn.SaveChanges();
+            var overtimeApplyEmployee = new OvertimeApplyEmployee
+            {
+                NIP = overtimeFormVM.NIP,
+                OvertimeApplyId = overtimeApply.OvertimeId,
+                Status = StatusRequest.Waiting
+            };
+            conn.Add(overtimeApplyEmployee);
+            var result = conn.SaveChanges();
+            return result;
+        }
 
         public IEnumerable<OvertimeFormVM> GetAllRequest()
         {
             var all = (
                 from e in conn.Employees
-                join a in conn.Accounts on e.NIP equals a.AccountId
-                join ar in conn.AccountRoles on a.AccountId equals ar.AccountId
                 join f in conn.overtimeApplyEmployees on e.NIP equals f.Employee.NIP
+                join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
                 select new OvertimeFormVM
                 {
-                    NIP = e.NIP,
-                    OvertimeId = f.OvertimeApply.OvertimeId,
-                    SubmissionDate = f.OvertimeApply.SubmissionDate,
-                    StartTime = f.OvertimeApply.StartTime,
-                    EndTime = f.OvertimeApply.EndTime,
-                    Task = f.OvertimeApply.Task,
-                    AdditionalSalary = f.OvertimeApply.AdditionalSalary
-
+                    NIP = f.NIP,
+                    OvertimeId = f.OvertimeApplyId,
+                    OvertimeName = o.OvertimeName,
+                    SubmissionDate = o.SubmissionDate,
+                    StartTime = o.StartTime,
+                    EndTime = o.EndTime,
+                    Task = o.Task,
+                    AdditionalSalary = o.AdditionalSalary,
+                    Status = f.Status
                 }).ToList();
             return all;
         }
