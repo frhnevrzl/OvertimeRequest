@@ -50,8 +50,9 @@ function Insert() {
     obj.Salary = parseInt($("#inputSalary").val());
     obj.Email = $("#inputEmail").val();
     obj.Password = $("#inputPassword").val();
-    obj.Gender = $("#inputGender").val();
-    obj.Religion = $("#inputReligion").val();
+    obj.Gender = $("#gender").val();
+    obj.Religion = $("#religion").val();
+    obj.DepartmentId = $("#departmentId").val();
     obj.ManagerId = parseInt($("#inputManagerId").val());
     var url = "https://localhost:44364/API/account/GetAllProfile"; 
     $.get(url, function (data) {

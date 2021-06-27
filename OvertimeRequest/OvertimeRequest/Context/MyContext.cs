@@ -27,9 +27,9 @@ namespace OvertimeRequest.Context
         public DbSet<RegisterVM> RegisterVM { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>()
-                .HasOne(p => p.Department)
-                .WithMany(a => a.Employee);
+            modelBuilder.Entity<Department>()
+                .HasMany(d => d.Employee)
+                .WithOne(e => e.Department);
 
             modelBuilder.Entity<Employee>()
                 .HasOne(p => p.Account)

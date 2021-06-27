@@ -20,9 +20,11 @@ namespace OvertimeRequest.Models
         public int Salary { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+
         public int ManagerId { get; set; }
         public virtual Account Account { get; set; }
         public virtual Department Department { get; set; }
+        public int DepartmentId { get; set; }
         public virtual ICollection<OvertimeApplyEmployee> OvertimeApplyEmployees { get; set; }
 
 

@@ -65,6 +65,7 @@ namespace OvertimeRequest.Repository.Data
                     Salary = register.Salary,
                     Email = register.Email,
                     Phone = register.Phone,
+                    DepartmentId = register.DepartmentId,
                     ManagerId = register.ManagerId,
                 };
                 conn.Add(employee);
@@ -137,11 +138,10 @@ namespace OvertimeRequest.Repository.Data
                     Salary = e.Salary,
                     Email = e.Email,
                     Phone = e.Phone,
+                    DepartmentId = e.DepartmentId,
                     ManagerId = e.ManagerId,
                     RoleId = ar.RoleId,
-                    Password = ar.Account.Password
-                   
-                   
+                    Password = ar.Account.Password  
                 }).ToList();
             return all;
         }
