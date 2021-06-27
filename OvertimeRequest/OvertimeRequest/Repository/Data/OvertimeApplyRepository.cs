@@ -13,7 +13,7 @@ namespace OvertimeRequest.Repository.Data
     public class OvertimeApplyRepository : GeneralRepository<MyContext, OvertimeApply, int>
     {
         private readonly EmailHandler sendEmail = new EmailHandler();
-        MyContext conn;
+        private readonly MyContext conn;
         public IConfiguration configuration { get; }
         public OvertimeApplyRepository(MyContext conn, IConfiguration configuration): base(conn) 
         {
@@ -21,28 +21,28 @@ namespace OvertimeRequest.Repository.Data
             conn.Set<OvertimeApply>();
             this.configuration = configuration;
         }
-        public int ApplyRequest(OvertimeFormVM overtimeFormVM)
-        {
-            var search = conn.Employees.Where(e => e.NIP == overtimeFormVM.NIP).FirstOrDefault();
+        //public int ApplyRequest(OvertimeFormVM overtimeFormVM)
+        //{
+        //    var search = conn.Employees.Where(e => e.NIP == overtimeFormVM.NIP).FirstOrDefault();
 
-            if (search.Account.AccountId == overtimeFormVM.AccountId)
-            {
-                var overtimeRequest = new OvertimeApply
-                {
-                    OvertimeName = overtimeFormVM.OvertimeName,
-                    SubmissionDate = overtimeFormVM.SubmissionDate,
-                    StartTime = overtimeFormVM.StartTime,
-                    EndTime = overtimeFormVM.EndTime,
-                    Task = overtimeFormVM.Task,
-                    AdditionalSalary = 250000
-                };
-                conn.Add(overtimeRequest);
-                conn.SaveChanges();
-                return 1;
-            }
-            else
-                return 0;
-        }
+        //    if (search.Account.AccountId == overtimeFormVM.AccountId)
+        //    {
+        //        var overtimeRequest = new OvertimeApply
+        //        {
+        //            OvertimeName = overtimeFormVM.OvertimeName,
+        //            SubmissionDate = overtimeFormVM.SubmissionDate,
+        //            StartTime = overtimeFormVM.StartTime,
+        //            EndTime = overtimeFormVM.EndTime,
+        //            Task = overtimeFormVM.Task,
+        //            AdditionalSalary = 250000
+        //        };
+        //        conn.Add(overtimeRequest);
+        //        conn.SaveChanges();
+        //        return 1;
+        //    }
+        //    else
+        //        return 0;
+        //}
 
         public IEnumerable<OvertimeFormVM> GetAllRequest()
         {
