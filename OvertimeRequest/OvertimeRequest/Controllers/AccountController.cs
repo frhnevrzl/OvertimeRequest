@@ -37,7 +37,7 @@ namespace OvertimeRequest.Controllers
         }
 
         [EnableCors("AllowOrigin")]
-        //[Authorize(Roles = "ADD2")]
+        [Authorize(Roles = "ADD2")]
         [HttpGet("GetAllProfile")]
         public ActionResult GetAllProfile()
         {

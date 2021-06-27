@@ -14,14 +14,10 @@ namespace OvertimeRequest.ViewModels
         //public string Email { get; set; }
         public int AccountId { get; set; }
         //public int RoleId { get; set; }
-        public List<OvertimeDetails> ListDetail { get; set; }
-
-    }
-    public class OvertimeDetails
-    {
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Task { get; set; }
         public int AdditionalSalary { get; set; }
+
     }
 }

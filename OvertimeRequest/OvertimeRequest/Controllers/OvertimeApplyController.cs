@@ -40,5 +40,18 @@ namespace OvertimeRequest.Controllers
                 return BadRequest(new { status = "Bad request", errorMessage = "Data input is not valid" });
             }
         }
+        [HttpGet("GetAllRequest")]
+        public ActionResult GetAllRequest()
+        {
+            var get = repo.GetAllRequest();
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+            {
+                return NotFound("Data tidak Ada");
+            }
+        }
     }
 }

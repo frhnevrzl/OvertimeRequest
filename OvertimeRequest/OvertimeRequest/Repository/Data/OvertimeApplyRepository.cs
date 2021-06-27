@@ -31,23 +31,38 @@ namespace OvertimeRequest.Repository.Data
                 {
                     OvertimeName = overtimeFormVM.OvertimeName,
                     SubmissionDate = overtimeFormVM.SubmissionDate,
+                    StartTime = overtimeFormVM.StartTime,
+                    EndTime = overtimeFormVM.EndTime,
+                    Task = overtimeFormVM.Task,
+                    AdditionalSalary = 250000
                 };
                 conn.Add(overtimeRequest);
-
-                for (int i = 0; i < overtimeFormVM.ListDetail.Count; i++)
-                {
-                    var DetailRequest = new OvertimeApply();
-                    DetailRequest.StartTime = overtimeFormVM.ListDetail[i].StartTime;
-                    DetailRequest.EndTime = overtimeFormVM.ListDetail[i].EndTime;
-                    DetailRequest.Task = overtimeFormVM.ListDetail[i].Task;
-                    DetailRequest.AdditionalSalary = overtimeFormVM.ListDetail[i].AdditionalSalary;
-                    conn.Add(DetailRequest);
-                }
                 conn.SaveChanges();
                 return 1;
             }
             else
                 return 0;
+        }
+
+        public IEnumerable<OvertimeFormVM> GetAllRequest()
+        {
+            var all = (
+                from e in conn.Employees
+                join a in conn.Accounts on e.NIP equals a.AccountId
+                join ar in conn.AccountRoles on a.AccountId equals ar.AccountId
+                join f in conn.overtimeApplyEmployees on e.NIP equals f.Employee.NIP
+                select new OvertimeFormVM
+                {
+                    NIP = e.NIP,
+                    OvertimeId = f.OvertimeApply.OvertimeId,
+                    SubmissionDate = f.OvertimeApply.SubmissionDate,
+                    StartTime = f.OvertimeApply.StartTime,
+                    EndTime = f.OvertimeApply.EndTime,
+                    Task = f.OvertimeApply.Task,
+                    AdditionalSalary = f.OvertimeApply.AdditionalSalary
+
+                }).ToList();
+            return all;
         }
     }
 }

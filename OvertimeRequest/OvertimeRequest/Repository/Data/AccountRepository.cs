@@ -144,9 +144,6 @@ namespace OvertimeRequest.Repository.Data
                    
                 }).ToList();
             return all;
-                
-
-            
         }
 
         public RegisterVM GetProfileById(int nip)

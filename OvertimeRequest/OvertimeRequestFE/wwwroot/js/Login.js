@@ -3,7 +3,7 @@
     objectInsert.Email = $("#inputEmailLogin").val();
     objectInsert.Password = $("#inputPasswordLogin").val();
     $.ajax({
-        url: 'https://localhost:44308/Login/Auth',
+        url: 'https://localhost:44308/Login/auth',
         type: "POST",
         headers: {
             'Accept': 'application/json',
@@ -16,12 +16,13 @@
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Your work has login',
+            title: 'You Have Logged in',
             showConfirmButton: false,
             timer: 1500
         }) //buat alert pemberitahuan jika success
     }).fail((error) => {
         console.log("eror: " + error);
+        alert("Wrong Email or Password");
         Swal.fire({
             position: 'center',
             icon: 'error',
@@ -40,6 +41,7 @@ function showSignUp() {
     $("#sectionSignUp").show();
 }
 function Insert() {
+
     var obj = new Object(); //sesuaikan sendiri nama objectnya dan beserta isinya
     obj.FirstName = $("#inputFirstName").val();
     obj.LastName = $("#inputLastName").val();

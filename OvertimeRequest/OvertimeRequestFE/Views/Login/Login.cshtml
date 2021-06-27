@@ -36,7 +36,7 @@
                     </div>
                     <div id="sectionSignUp" style="display:none" class="card-body">
                         <h5 class="card-title text-center">Sign Up</h5>
-                        <form id="registerForm" class="needs-validation" novalidate>
+                        <form id="registerForm" action="javascript:Insert()">
                             <div class="row">
                                 <div class="col-6 my-1">
                                     <label for="InputFirstName" class="col-form-label">First Name</label>
@@ -70,19 +70,19 @@
                                 </div>
                                 <div class="col-6 my-1">
                                     <label for="InputPassword" class="col-form-label">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp" minlength="6">
+                                    <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp" minlength="6" required>
                                     <div id="passwordHelp" class="form-text"></div>
                                 </div>
                                 <div class="col-6 my-1">
                                     <label for="name" class="col-form-label">Gender</label>
-                                    <select id="gender" class="form-control">
+                                    <select id="gender" class="form-control" required>
                                         <option value="Laki - laki">Laki - Laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="col-6 my-1">
                                     <label for="religion" class="col-form-label">Religion</label>
-                                    <select id="religion" class="form-control">
+                                    <select id="religion" class="form-control" required>
                                         <option value="Islam">Islam</option>
                                         <option value="Kristen">Kristen</option>
                                         <option value="Buddha">Budhha</option>
@@ -95,7 +95,7 @@
                                     <div id="managerHelp" class="form-text"></div>
                                 </div>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="button" onclick="Insert()">Sign Up</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button>
                             <div style="display:block;" class="mt-2 text-center">
                                 <label onclick="showSignIn()">Sign In</label>
                             </div>
