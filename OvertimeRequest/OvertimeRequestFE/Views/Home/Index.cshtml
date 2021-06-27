@@ -1,19 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
 
-<script>
-
-   $.ajax({
-       url: "https://localhost:44364/API/account/getallprofile/",
-       success: function (result) {
-           console.log(result);
-       }
-    })
-</script> 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin</title>
+</head>
+<body>
+    <div class="container-fluid">
+            <div class="col-5">
+                <div class="card" id="SalContainer">
+                    <div class="card-header bg-transparent border-success"> Roles Chart</div>
+                    <div class="card-body">
+                        <div id="SalCh"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+@section scripts{
+    <script src="~/js/Admin.js" asp-append-version="true"></script>
+}

@@ -21,28 +21,6 @@ namespace OvertimeRequest.Repository.Data
             conn.Set<OvertimeApply>();
             this.configuration = configuration;
         }
-        //public int ApplyRequest(OvertimeFormVM overtimeFormVM)
-        //{
-        //    var search = conn.Employees.Where(e => e.NIP == overtimeFormVM.NIP).FirstOrDefault();
-
-        //    if (search.Account.AccountId == overtimeFormVM.AccountId)
-        //    {
-        //        var overtimeRequest = new OvertimeApply
-        //        {
-        //            OvertimeName = overtimeFormVM.OvertimeName,
-        //            SubmissionDate = overtimeFormVM.SubmissionDate,
-        //            StartTime = overtimeFormVM.StartTime,
-        //            EndTime = overtimeFormVM.EndTime,
-        //            Task = overtimeFormVM.Task,
-        //            AdditionalSalary = 250000
-        //        };
-        //        conn.Add(overtimeRequest);
-        //        conn.SaveChanges();
-        //        return 1;
-        //    }
-        //    else
-        //        return 0;
-        //}
         public int ApplyRequest(OvertimeFormVM overtimeFormVM)
         {
             var overtimeApply = new OvertimeApply
@@ -75,15 +53,7 @@ namespace OvertimeRequest.Repository.Data
                 join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
                 select new OvertimeFormVM
                 {
-                    NIP = f.NIP,
-                    OvertimeId = f.OvertimeApplyId,
-                    OvertimeName = o.OvertimeName,
-                    SubmissionDate = o.SubmissionDate,
-                    StartTime = o.StartTime,
-                    EndTime = o.EndTime,
-                    Task = o.Task,
-                    AdditionalSalary = o.AdditionalSalary,
-                    Status = f.Status
+
                 }).ToList();
             return all;
         }
