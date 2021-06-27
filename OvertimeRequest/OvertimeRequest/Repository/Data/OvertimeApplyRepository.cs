@@ -49,10 +49,19 @@ namespace OvertimeRequest.Repository.Data
         {
             var all = (
                 from e in conn.Employees
-                join f in conn.overtimeApplyEmployees on e.NIP equals f.Employee.NIP
+                join f in conn.overtimeApplyEmployees on e.NIP equals f.NIP
                 join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
                 select new OvertimeFormVM
                 {
+                    OvertimeId = f.OvertimeApply.OvertimeId,
+                    OvertimeName = f.OvertimeApply.OvertimeName,
+                    SubmissionDate = f.OvertimeApply.SubmissionDate,
+                    NIP = f.NIP,
+                    StartTime = f.OvertimeApply.StartTime,
+                    EndTime = f.OvertimeApply.EndTime,
+                    Task = f.OvertimeApply.Task,
+                    AdditionalSalary = f.OvertimeApply.AdditionalSalary,
+                    Status = f.Status
 
                 }).ToList();
             return all;
