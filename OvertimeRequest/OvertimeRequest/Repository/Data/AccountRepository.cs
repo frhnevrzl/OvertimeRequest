@@ -177,6 +177,18 @@ namespace OvertimeRequest.Repository.Data
             var result = conn.SaveChanges();
             return result;
         }
+        public int DeleteProfile(int nip)
+        {
+            var del = conn.Employees.Find(nip);
+            if (del != null)
+            {
+                conn.Remove(del);
+                conn.SaveChanges();
+                return 1;
+            }
+            else
+                return 0;
+        }
     }
 
 }
