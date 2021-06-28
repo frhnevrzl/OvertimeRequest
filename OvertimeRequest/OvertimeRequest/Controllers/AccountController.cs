@@ -107,6 +107,18 @@ namespace OvertimeRequest.Controllers
             }
             return NotFound();
         }
+        //[EnableCors("AllowOrigin")]
+        [HttpPost("DeleteProfile/{nip}")]
+        public ActionResult DeleteProfile(int nip)
+        {
+            var del = repo.DeleteProfile(nip);
+            if (del != 0)
+            {
+                return Ok("Delete Success");
+            }
+            else
+                return NotFound("No Record");
+        }
 
 
     }
