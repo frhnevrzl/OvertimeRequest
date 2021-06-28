@@ -184,3 +184,5 @@ C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeReque
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.dll
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.pdb
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.genruntimeconfig.cache
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\RequestOvertimeForm\Index.cshtml.g.cs
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
