@@ -13,8 +13,4 @@
     <ProjectReference Include="..\OvertimeRequest\OvertimeRequest.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\ResetPassword\" />
-  </ItemGroup>
-
 </Project>
