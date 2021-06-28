@@ -66,5 +66,59 @@ namespace OvertimeRequest.Repository.Data
                 }).ToList();
             return all;
         }
+        //public int ListApproveRequest(List<ApprovalVM> approvalVM)
+        //{
+        //    if(approvalVM.Count == 0)
+        //    {
+        //        return 0;
+        //    }
+        //    foreach (var item in approvalVM)
+        //    {
+        //        OvertimeApplyEmployee overtimeApplyEmployee = conn.overtimeApplyEmployees.Find(item.OvertimeApplyId);
+        //        if (overtimeApplyEmployee == null)
+        //        {
+        //            return 0;
+        //        }
+        //        if (item.Status == 1)
+        //        {
+        //            overtimeApplyEmployee.Status = StatusRequest.ApproveByManager;
+        //        }
+        //        else if (item.Status == 2)
+        //        {
+        //            overtimeApplyEmployee.Status = StatusRequest.ApproveByFinance;
+        //        }
+        //        else if (item.Status == 3)
+        //        {
+        //            overtimeApplyEmployee.Status = StatusRequest.Reject;
+        //        }
+        //        conn.Update(overtimeApplyEmployee);
+        //        conn.SaveChanges();
+        //    }
+        //    return 1;
+        //}
+
+        public int ApproveRequest(ApprovalVM approvalVM)
+        {
+            OvertimeApplyEmployee overtimeApplyEmployee = conn.overtimeApplyEmployees.Find(approvalVM.OvertimeApplyId);
+            if (overtimeApplyEmployee == null)
+            {
+                return 0;
+            }
+            if (approvalVM.Status == 1)
+            {
+                overtimeApplyEmployee.Status = StatusRequest.ApproveByManager;
+            }
+            else if (approvalVM.Status == 2)
+            {
+                overtimeApplyEmployee.Status = StatusRequest.ApproveByFinance;
+            }
+            else if (approvalVM.Status == 3)
+            {
+                overtimeApplyEmployee.Status = StatusRequest.Reject;
+            }
+            conn.Update(overtimeApplyEmployee);
+            conn.SaveChanges();
+            return 1;
+        }
     }
 }

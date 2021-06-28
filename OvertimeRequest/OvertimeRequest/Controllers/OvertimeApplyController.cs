@@ -53,5 +53,35 @@ namespace OvertimeRequest.Controllers
                 return NotFound("Data tidak Ada");
             }
         }
+        [HttpPut("Approval")]
+        public IActionResult ApprovalRequest(ApprovalVM approvalVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var approve = repo.ApproveRequest(approvalVM);
+                if (approve > 0)
+                {
+                    if (approvalVM.Status == 3)
+                    {
+                        return Ok(new { status = "Rejected" });
+                    }
+                    else
+                    {
+                        return Ok(new { status = "Approved" });
+
+                    }
+                   
+                }
+                else
+                {
+                    return Ok(new { status = "Cannot Change Request Error" });
+                }
+            }
+            else
+            {
+                return BadRequest(new { status = "Bad request", errorMessage = "Data input is not valid" });
+            }
+        }
+
     }
 }

@@ -37,3 +37,25 @@
 
     calendar.render();
 });
+
+function approveOvertimeRequestManager() {
+    var object = new Object();
+    var Nip = $("#NIP").val();
+    var idOvertime = $("#idOvertime").val();
+    object.NIP = Nip;
+    object.Status = 1;
+    object.overtimeApplyId = idOvertime;
+}
+
+function approveOvertimeRequestFinance() {
+    var object = new Object();
+    var Nip = $("#NIP").val();
+    var idOvertime = $("#idOvertime").val();
+    object.NIP = Nip;
+    object.Status = 2;
+    object.overtimeApplyId = idOvertime;
+}
+function RejcetOvertimeRequest() {
+    var Nip = $("#NIP").val();
+    if ()
+}
