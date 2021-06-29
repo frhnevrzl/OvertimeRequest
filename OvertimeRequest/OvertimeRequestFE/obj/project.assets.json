@@ -32,6 +32,15 @@
           "lib/netstandard1.5/Castle.Core.dll": {}
         }
       },
+      "Humanizer.Core/2.8.26": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Humanizer.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.12": {
         "type": "package",
         "dependencies": {
@@ -189,6 +198,23 @@
         },
         "runtime": {
           "lib/netstandard2.0/_._": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Design/5.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Humanizer.Core": "2.8.26",
+          "Microsoft.CSharp": "4.7.0",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.7"
+        },
+        "compile": {
+          "lib/netstandard2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll": {}
+        },
+        "build": {
+          "build/netcoreapp3.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Proxies/5.0.7": {
@@ -2256,6 +2282,22 @@
         "readme.txt"
       ]
     },
+    "Humanizer.Core/2.8.26": {
+      "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
+      "type": "package",
+      "path": "humanizer.core/2.8.26",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "humanizer.core.2.8.26.nupkg.sha512",
+        "humanizer.core.nuspec",
+        "lib/netstandard1.0/Humanizer.dll",
+        "lib/netstandard1.0/Humanizer.xml",
+        "lib/netstandard2.0/Humanizer.dll",
+        "lib/netstandard2.0/Humanizer.xml",
+        "logo.png"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.12": {
       "sha512": "Kl6VnydiO9kh4xGo5PugXYViy6kVNxV3UrAvF1sDmMTpkSKtcLsdHWVflzGTD8HUnm8VpvzF1z9/1cmNBeYXOg==",
       "type": "package",
@@ -2491,6 +2533,21 @@
         "lib/netstandard2.0/_._",
         "microsoft.entityframeworkcore.analyzers.5.0.7.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Design/5.0.7": {
+      "sha512": "r/0Jkp7HCzWSXdC79jwK4JKNw16s88E23U46rCu+I1zYYXg+w4TR/S9zAkQNHiNkaCFyGUod/b5ZoQCI5eqJ2A==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.design/5.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "build/netcoreapp3.0/Microsoft.EntityFrameworkCore.Design.props",
+        "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll",
+        "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.xml",
+        "microsoft.entityframeworkcore.design.5.0.7.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Proxies/5.0.7": {
@@ -7509,25 +7566,27 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.12",
+      "Microsoft.EntityFrameworkCore >= 5.0.7",
       "Microsoft.EntityFrameworkCore.Analyzers >= 5.0.7",
+      "Microsoft.EntityFrameworkCore.Design >= 5.0.7",
       "Newtonsoft.Json >= 13.0.1",
       "OvertimeRequest >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Han\\.nuget\\packages\\": {}
+    "C:\\Users\\AmaeSchiffer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
+      "projectUniqueName": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
       "projectName": "OvertimeRequestFE",
-      "projectPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
-      "packagesPath": "C:\\Users\\Han\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\obj\\",
+      "projectPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
+      "packagesPath": "C:\\Users\\AmaeSchiffer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Han\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AmaeSchiffer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7541,8 +7600,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj": {
-              "projectPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj"
+            "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj": {
+              "projectPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj"
             }
           }
         }
@@ -7561,7 +7620,17 @@
             "target": "Package",
             "version": "[3.1.12, )"
           },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[5.0.7, )"
+          },
           "Microsoft.EntityFrameworkCore.Analyzers": {
+            "target": "Package",
+            "version": "[5.0.7, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[5.0.7, )"
           },
@@ -7588,7 +7657,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
