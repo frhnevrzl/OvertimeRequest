@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
 }
 <div class="container container-fluid">
+    @*<input id="role" style="display:none" value="@ViewData["role"]">*@
     <h1>Approval</h1>
     <table id="tableOvertimeapply" class="table table-responsive table-hover table-bordered">
         <thead>
@@ -22,7 +23,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button class="btn btn-primary" data-dismiss="modal">
+                    <i style="color:white" aria-hidden="true" class="fa fa-times"></i>
+                </button>
             </div>
             <div class="modal-body" id="detailapprove">
                 <form id="formPersonUpd" action="">
@@ -45,9 +48,13 @@
                             <div id="requestDetailHelp" class="form-text"></div>
                         </div>
                     </div>
+                    <div>
+                        <input type="text" class="form-control" style="display:none" id="overtimeid">
+                        <input type="text" class="form-control" style="display:none" id="nip">
+                    </div>
                     <div class="modal-footer">
-                        <button id="UpdateBtn" type="submit" class="btn btn-primary">Approve</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Reject</button>
+                        <button id="UpdateBtn" type="button" class="btn btn-primary">Approve</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="rejectBtn">Reject</button>
                     </div>
                 </form>
             </div>

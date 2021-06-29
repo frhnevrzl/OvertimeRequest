@@ -40,6 +40,28 @@ namespace OvertimeRequest.Controllers
                 return BadRequest(new { status = "Bad request", errorMessage = "Data input is not valid" });
             }
         }
+
+        [HttpPost("AddListOvertime")]
+        public IActionResult AddListOvertime(List<OvertimeFormVM> overtimeFormVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = repo.ApplyListRequest(overtimeFormVM);
+                if (data > 0)
+                {
+                    return Ok(new { status = "Request Added" });
+                }
+                else
+                {
+                    return StatusCode(500, new { status = "Internal server error" });
+                }
+            }
+            else
+            {
+                return BadRequest(new { status = "Bad request", errorMessage = "Data input is not valid" });
+            }
+        }
+
         [HttpGet("GetAllRequest")]
         public ActionResult GetAllRequest()
         {
@@ -54,10 +76,22 @@ namespace OvertimeRequest.Controllers
             }
         }
 
-        [HttpGet("GetRequestById/{nip}")]
-        public ActionResult GetRequestById(int nip)
+        [HttpGet("GetRequestByNip/{nip}")]
+        public ActionResult GetRequestByNip(int nip)
         {
-            var get = repo.GetRequestById(nip);
+            var get = repo.GetRequestByNip(nip);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+                return NotFound("No Record");
+        }
+        //id overtime
+        [HttpGet("GetRequestById/{id}")]
+        public ActionResult GetRequestById(int id)
+        {
+            var get = repo.GetRequestById(id);
             if (get != null)
             {
                 return Ok(get);
@@ -94,6 +128,17 @@ namespace OvertimeRequest.Controllers
             {
                 return BadRequest(new { status = "Bad request", errorMessage = "Data input is not valid" });
             }
+        }
+        [HttpGet("GetAllRequestByStatus")]
+        public ActionResult GetAllRequestByStatus([FromQuery(Name = "status")] int status)
+        {
+            var get = repo.GetAllRequestByStatus(status);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+                return NotFound("No Record");
         }
 
     }
