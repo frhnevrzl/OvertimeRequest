@@ -66,6 +66,28 @@ namespace OvertimeRequest.Repository.Data
                 }).ToList();
             return all;
         }
+        public OvertimeFormVM GetRequestById(int nip)
+        {
+            var all = (
+                from e in conn.Employees
+                join f in conn.overtimeApplyEmployees on e.NIP equals f.NIP
+                join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
+                select new OvertimeFormVM
+                {
+                    AccountId = e.NIP,
+                    OvertimeId = f.OvertimeApply.OvertimeId,
+                    OvertimeName = f.OvertimeApply.OvertimeName,
+                    SubmissionDate = f.OvertimeApply.SubmissionDate,
+                    NIP = f.NIP,
+                    StartTime = f.OvertimeApply.StartTime,
+                    EndTime = f.OvertimeApply.EndTime,
+                    Task = f.OvertimeApply.Task,
+                    AdditionalSalary = f.OvertimeApply.AdditionalSalary,
+                    Status = f.Status
+
+                }).ToList();
+            return all.FirstOrDefault(e=>e.NIP== nip);
+        }
         //public int ListApproveRequest(List<ApprovalVM> approvalVM)
         //{
         //    if(approvalVM.Count == 0)

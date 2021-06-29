@@ -53,6 +53,19 @@ namespace OvertimeRequest.Controllers
                 return NotFound("Data tidak Ada");
             }
         }
+
+        [HttpGet("GetRequestById/{nip}")]
+        public ActionResult GetRequestById(int nip)
+        {
+            var get = repo.GetRequestById(nip);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+                return NotFound("No Record");
+        }
+
         [HttpPut("Approval")]
         public IActionResult ApprovalRequest(ApprovalVM approvalVM)
         {
