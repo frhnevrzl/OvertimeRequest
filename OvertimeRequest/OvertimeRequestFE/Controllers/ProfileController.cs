@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace OvertimeRequestFE.Controllers
 {
-    public class RequestOvertimeFormController : Controller
+    public class ProfileController : Controller
     {
         public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult ReqOvertime()
         {
             return View();
         }

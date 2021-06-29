@@ -1,0 +1,84 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>My Profile</h2>
+    <form id="formEmployeeUpd" action="javascript:Update()">
+        <div class="row">
+            <div class="col-6 my-1">
+                <label for="Nip" class="col-form-label">NIP</label>
+                <input type="text" class="form-control" id="Nip" aria-describedby="nipHelp" disabled>
+                <div id="nipHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="FirstName" class="col-form-label">First Name</label>
+                <input type="text" class="form-control" id="FirstName" aria-describedby="firstnameHelp">
+                <div id="firstnameHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="LastName" class="col-form-label">Last Name</label>
+                <input type="text" class="form-control" id="LastName" aria-describedby="lastnameHelp">
+                <div id="lastnameHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="Phone" class="col-form-label">Phone</label>
+                <input type="text" class="form-control" id="Phone" aria-describedby="phoneHelp">
+                <div id="phoneHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="Birthdate" class="col-form-label">Birth Date</label>
+                <input type="date" class="form-control" id="Birthdate" value="1997-06-15" aria-describedby="BirthdateHelp">
+                <div id="BirthdateHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="Salary" class="col-form-label">Salary</label>
+                <input type="text" class="form-control" id="Salary" aria-describedby="salaryHelp">
+                <div id="salaryHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="Email" class="col-form-label">Email</label>
+                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" disabled>
+                <div id="emailHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="Password" class="col-form-label">Password</label>
+                <input type="password" class="form-control" id="Password" aria-describedby="passwordHelp" minlength="6">
+                <div id="passwordHelp" class="form-text"></div>
+            </div>
+            <div class="col-6 my-1">
+                <label for="name" class="col-form-label">Gender</label>
+                <select id="gender" class="form-control" required>
+                    <option value="Laki - laki">Laki - Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="col-6 my-1">
+                <label for="religion" class="col-form-label">Religion</label>
+                <select id="religion" class="form-control" required>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Buddha">Budhha</option>
+                    <option value="Hindu">Hindu</option>
+                </select>
+            </div>
+            <div class="col-6 my-1">
+                <label for="departmentId" class="col-form-label">Department</label>
+                <select id="departmentId" class="form-control" required>
+                    <option value="1">Finance</option>
+                    <option value="2">ADD2</option>
+                    <option value="3">ADD1</option>
+                </select>
+            </div>
+            <div class="col-6 my-1">
+                <label for="InputManagerId" class="col-form-label">Manager ID</label>
+                <input type="number" class="form-control" id="inputManagerId" aria-describedby="managerHelp" required>
+                <div id="managerHelp" class="form-text"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="UpdateBtn" type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
+

@@ -55,7 +55,7 @@ function approveOvertimeRequestFinance() {
     object.Status = 2;
     object.overtimeApplyId = idOvertime;
 }
-function RejcetOvertimeRequest() {
-    var Nip = $("#NIP").val();
-    if ()
-}
+//function RejcetOvertimeRequest() {
+//    var Nip = $("#NIP").val();
+//    if ()
+//}
