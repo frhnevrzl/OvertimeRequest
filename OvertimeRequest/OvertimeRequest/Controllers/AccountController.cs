@@ -120,6 +120,17 @@ namespace OvertimeRequest.Controllers
                 return NotFound("No Record");
         }
 
-
+        [EnableCors("AllowOrigin")]
+        [HttpPost("UpdateProfile")]
+        public ActionResult UpdateProfile(RegisterVM register)
+        {
+            var put = repo.UpdateProfile(register);
+            if (put > 0)
+            {
+                return Ok("Record Changed");
+            }
+            else
+                return NotFound("Record Not Match");
+        }
     }
 }

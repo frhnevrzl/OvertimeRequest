@@ -189,6 +189,28 @@ namespace OvertimeRequest.Repository.Data
             else
                 return 0;
         }
+
+        public int UpdateProfile(RegisterVM register)
+        {
+
+            Employee employee = conn.Employees.Find(register.NIP);
+            employee.FirstName = register.FirstName;
+            employee.LastName = register.LastName;
+            employee.BirthDate = register.BirthDate;
+            employee.Phone = register.Phone;
+            employee.Email = register.Email;
+            employee.Gender = register.Gender;
+            employee.Religion = register.Religion;
+            employee.DepartmentId = register.DepartmentId;
+            employee.ManagerId = register.ManagerId;
+            conn.Update(employee);
+
+            Account account = conn.Accounts.Find(register.NIP);
+            account.Password = Hashing.HashPassword(register.Password.ToString()).ToString();
+            conn.Update(account);
+
+            return conn.SaveChanges();
+        }
     }
 
 }

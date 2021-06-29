@@ -1,3 +1,70 @@
-﻿#timesheet-navigation{
-
+﻿
+section {
+    padding-left: 220px;
+    padding-right: 10px;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
+.timesheet-navigation {
+    margin-top: -30px;
+    margin-left: -12px;
+}
+.nav-tabs {
+    border: none;
+    width: 100%;
+}
+
+    .nav-tabs > li {
+        width: 150px;
+        text-align: center;
+        width: 103px;
+        font-size: 90px !important;
+    }
+
+
+        .nav-tabs > li > a {
+            color: black;
+            font-weight: 700;
+            font-size: 15px;
+            height: 60px; line-height: 40px;
+            white-space: nowrap;
+            font-size: 13px !important;
+            font-size: 11px !important;
+        }
+
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            border: none;
+            border-bottom: solid 3px #dd915b;
+            border-radius: 0px;
+            color: darkblue;
+            z-index: 1;
+        }
+
+
+
+    .nav > li > a:focus, .nav > li > a:hover {
+        background-color: rgba(28, 127, 125, 0.02);
+        border: none;
+        border-radius: 0px !important;
+    }
+.tab-content {
+    overflow: hidden;
+}
+
+
+.tab-text {
+    padding-left: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+.tab-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #1AAEAB;
+    color: white;
+    font-weight: 100;
+    display: none;
+}
+
