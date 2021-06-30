@@ -1,9 +1,11 @@
 ﻿@{
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
+    ViewData["Role"] = @ViewBag.sessionRole;
 }
 <div class="container container-fluid">
-    @*<input id="role" style="display:none" value="@ViewData["role"]">*@
-    <h1>Approval</h1>
+    <input id="role" style="display:none" value="@ViewData["role"]">
+    <h1>Approval @ViewData["Role"]</h1>
+    @*<input id="role" value=" @ViewData["Role"]" />*@
     <table id="tableOvertimeapply" class="table table-responsive table-hover table-bordered">
         <thead>
             <tr>

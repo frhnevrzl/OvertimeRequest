@@ -1,13 +1,13 @@
 ﻿$(document).ready(function () {
-    //var urlPost = "";
-    //if ($("#role").val() == "Manager") {
-    //    urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=0";
-    //} else if ($("#role").val() == "Finance") {
-    //    urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=1";
-    //}
+    var urlPost = "";
+    if ($("#role").val() == "Manager") {
+        urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=0";
+    } else if ($("#role").val()  == "Finance") {
+        urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=1";
+    }
     $('#tableOvertimeapply').DataTable({
         ajax: {
-            url: "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=0",
+            url: urlPost,
             dataSrc: ''
         },
         columns: [
@@ -33,7 +33,7 @@
             }
         ]
     });
-    console.log();
+    console.log($("#role").val());
 });
 function detail(overtimeid) {
     $.ajax({
@@ -45,14 +45,14 @@ function detail(overtimeid) {
         },
     }).done((result) => {
         console.log(JSON.stringify(result));
-        $("#overtimeId").val(result[0]['overtimeId']);
-        $("#nip").val(result[0]['nip']);
-        $("#submissionDate").val(formatDate(result[0]['submissionDate']));
-        $("#requestDetail").val(result[0]['task']);
-        var urlGet = "https://localhost:44364/API/account/GetProfileById/" + result[0]['nip'];
-        $.get(urlGet, function (data) {
-            $("#employeename").val(data['firstName'] + " " + data['lastName']);
-        });
+        //$("#overtimeId").val(result[0]['overtimeId']);
+        //$("#nip").val(result[0]['nip']);
+        //$("#submissionDate").val(formatDate(result[0]['submissionDate']));
+        //$("#requestDetail").val(result[0]['task']);
+        //var urlGet = "https://localhost:44364/API/account/GetProfileById/" + result[0]['nip'];
+        //$.get(urlGet, function (data) {
+        //    $("#employeename").val(data['firstName'] + " " + data['lastName']);
+        //});
     }).fail((error) => {
         Swal.fire({
             title: 'Error!',
@@ -67,11 +67,11 @@ $("#UpdateBtn").on("click", function () {
     var objectData = new Obect();
     objectData.NIP = $("#nip").val();
     objectData.overtimeApplyId = $("#overtimeid").val();
-    //if (role == "Manager") {
-    //    objectData.Status = 1;
-    //} else if (role == "Finance") {
-    //    objectData.Status = 2;
-    //}
+    if ('<%= ViewData["Role"] %>' == "Manager") {
+        objectData.Status = 1;
+    } else if ('<%= ViewData["Role"] %>' == "Finance") {
+        objectData.Status = 2;
+    }
     objectData.Status = 1;
     $.ajax({
         url: 'https://localhost:44364/api/overtimeapply/approval',
