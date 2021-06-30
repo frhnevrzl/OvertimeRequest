@@ -21,10 +21,35 @@
                 "data": 'nip'
             },
             {
-                "data": 'status'
+/*                "data": 'status'*/
+                "render": function (data, type, row) {
+                    if (row.status != null) {
+                        if (row.status == 0) {
+                            return ("Waiting For Approval");
+                        }
+                        else if (row.status == 1) {
+                            return ("Approved By Manager");
+                        }
+                        else if (row.status == 2) {
+                            return ("Approved By Finance Manager");
+                        }
+                        else if (row.status == 3) {
+                            return ("Rejected");
+                        }
+                    }
+                    else {
+                        return ("No Data");
+                    }
+                }
             },
             {
                 "data": 'overtimeId'
+            },
+            {
+                "data": 'startTime'
+            },
+            {
+                "data": 'endTime'
             },
             {
                 "render": function (data, type, row) {
@@ -99,7 +124,7 @@ $("#UpdateBtn").on("click", function () {
 });
 
 $("#rejectBtn").on("click", function () {
-    var objectData = new Obect();
+    var objectData = new Object();
     objectData.NIP = $("#nip").val();
     objectData.overtimeApplyId = $("#overtimeid").val();
     objectData.Status = 3;

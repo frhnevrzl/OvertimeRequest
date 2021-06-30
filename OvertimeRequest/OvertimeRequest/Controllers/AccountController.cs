@@ -89,6 +89,15 @@ namespace OvertimeRequest.Controllers
             else
                 return BadRequest("Gagal Login");
         }
+
+        [HttpPut("ResetPassword")]
+        public ActionResult ResetPassword(RegisterVM register)
+        {
+            var data = repo.ResetPassword(register.Email);
+            return (data > 0) ? (ActionResult)Ok(new { message = "Email has been Sent, password changed", status = "Ok" }) :
+                NotFound(new { message = "Data not exist in our database, please register first", status = 404 });
+        }
+
         [HttpPut("ChangePassword")]
         public ActionResult ChangePassword(ChangePasswordVM changePasswordVM)
         {
