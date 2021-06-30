@@ -5,6 +5,7 @@ var table = null;
 var rowIndex = 0;
 
 function AddListOvertime() {
+    //hitung durasi
     var difference = moment($("#etime").val(), 'hh:mm:ss').diff(moment($("#stime").val(), 'hh:mm:ss'), 'hours');
     totalOvertime = totalOvertime + difference;
     if (totalOvertime > 3) {
@@ -38,7 +39,8 @@ function AddListOvertime() {
 }
 
 function additionalSalary(param) {
-    return param * 100000;
+    //ambil tengah dr 68k - 86k untuk data dummy dulu
+    return param * 74000;
 }
 
 function concatDateWithHoursMinute(date, hoursMinute) {
