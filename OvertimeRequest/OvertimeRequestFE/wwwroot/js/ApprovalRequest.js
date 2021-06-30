@@ -45,14 +45,14 @@ function detail(overtimeid) {
         },
     }).done((result) => {
         console.log(JSON.stringify(result));
-        //$("#overtimeId").val(result[0]['overtimeId']);
-        //$("#nip").val(result[0]['nip']);
-        //$("#submissionDate").val(formatDate(result[0]['submissionDate']));
-        //$("#requestDetail").val(result[0]['task']);
-        //var urlGet = "https://localhost:44364/API/account/GetProfileById/" + result[0]['nip'];
-        //$.get(urlGet, function (data) {
-        //    $("#employeename").val(data['firstName'] + " " + data['lastName']);
-        //});
+        $("#overtimeid").val(result[0]['overtimeId']);
+        $("#nip").val(result[0]['nip']);
+        $("#submissionDate").val(formatDate(result[0]['submissionDate']));
+        $("#requestDetail").val(result[0]['task']);
+        var urlGet = "https://localhost:44364/API/account/GetProfileById/" + result[0]['nip'];
+        $.get(urlGet, function (data) {
+            $("#employeename").val(data['firstName'] + " " + data['lastName']);
+        });
     }).fail((error) => {
         Swal.fire({
             title: 'Error!',
@@ -64,15 +64,14 @@ function detail(overtimeid) {
 }
 
 $("#UpdateBtn").on("click", function () {
-    var objectData = new Obect();
+    var objectData = new Object();
     objectData.NIP = $("#nip").val();
     objectData.overtimeApplyId = $("#overtimeid").val();
-    if ('<%= ViewData["Role"] %>' == "Manager") {
+    if ($("#role").val() == "Manager") {
         objectData.Status = 1;
-    } else if ('<%= ViewData["Role"] %>' == "Finance") {
+    } else if ($("#role").val() == "Finance") {
         objectData.Status = 2;
     }
-    objectData.Status = 1;
     $.ajax({
         url: 'https://localhost:44364/api/overtimeapply/approval',
         type: "PUT",
@@ -86,14 +85,14 @@ $("#UpdateBtn").on("click", function () {
         Swal.fire({
             title: 'Berhasil!',
             text: 'Data Berhasil Di Approve!',
-            icon: 'Success',
+            icon: 'success',
             confirmButtonText: 'Next'
         });
     }).fail((error) => {
         Swal.fire({
             title: 'Error!',
             text: 'Data Cannot Approve',
-            icon: 'Error',
+            icon: 'error',
             confirmButtonText: 'Next'
         });
     });
@@ -130,10 +129,11 @@ $("#rejectBtn").on("click", function () {
     });
 });
 
-function formatDate(date) {
-    var month = String(d.getMonth() + 1);
-    var day = String(d.getDate());
-    var year = String(d.getFullYear());
+function formatDate(param) {
+    var date = new Date(param);
+    var month = String(date.getMonth() + 1);
+    var day = String(date.getDate());
+    var year = String(date.getFullYear());
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
     return `${day}-${month}-${year}`;
