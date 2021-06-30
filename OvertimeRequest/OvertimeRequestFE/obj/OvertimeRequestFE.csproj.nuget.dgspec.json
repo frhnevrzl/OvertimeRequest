@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj": {}
+    "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj": {
+    "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
+        "projectUniqueName": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
         "projectName": "OvertimeRequestFE",
-        "projectPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
-        "packagesPath": "C:\\Users\\AmaeSchiffer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\obj\\",
+        "projectPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\OvertimeRequestFE.csproj",
+        "packagesPath": "C:\\Users\\Han\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequestFE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AmaeSchiffer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Han\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj": {
-                "projectPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj"
+              "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj": {
+                "projectPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj"
               }
             }
           }
@@ -47,6 +47,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.12, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -85,21 +89,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj": {
+    "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj",
+        "projectUniqueName": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj",
         "projectName": "OvertimeRequest",
-        "projectPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj",
-        "packagesPath": "C:\\Users\\AmaeSchiffer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AmaeSchiffer\\source\\repos\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\obj\\",
+        "projectPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest.csproj",
+        "packagesPath": "C:\\Users\\Han\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\OvertimeRequest\\OvertimeRequest\\OvertimeRequest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AmaeSchiffer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Han\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -136,6 +140,10 @@
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.1.12, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -184,7 +192,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

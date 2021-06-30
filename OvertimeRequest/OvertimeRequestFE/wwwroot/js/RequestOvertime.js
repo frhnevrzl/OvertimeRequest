@@ -47,29 +47,29 @@ function concatDateWithHoursMinute(date, hoursMinute) {
 
 function AddOvertimeForm() {
     console.log(JSON.stringify(listOvertime));
-    //$.ajax({
-    //    url: 'https://localhost:44364/API/overtimeapply/addlistovertime',
-    //    type: "POST",
-    //    headers: {
-    //        'Accept': 'application/json',
-    //        'Content-Type': 'application/json'
-    //    },
-    //    data: JSON.stringify(listOvertime)
-    //}).done((result) => {
-    //    Swal.fire({
-    //        title: 'Success!',
-    //        text: 'Your Request Has Been Added, Waiting For Approval',
-    //        icon: 'success',
-    //        confirmButtonText: 'Next'
-    //    })
-    //}).fail((error) => {
-    //    Swal.fire({
-    //        position : 'center',
-    //        title: 'Error!',
-    //        text: 'Please Check Your Data',
-    //        icon: 'error',
-    //        confirmButtonText: 'Back'
-    //    })
-    //    console.log(error);
-    //});
+    $.ajax({
+        url: 'https://localhost:44364/API/overtimeapply/addlistovertime',
+        type: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(listOvertime)
+    }).done((result) => {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Your Request Has Been Added, Waiting For Approval',
+            icon: 'success',
+            confirmButtonText: 'Next'
+        })
+    }).fail((error) => {
+        Swal.fire({
+            position : 'center',
+            title: 'Error!',
+            text: 'Please Check Your Data',
+            icon: 'error',
+            confirmButtonText: 'Back'
+        })
+        console.log(error);
+    });
 }
