@@ -30,7 +30,7 @@ namespace OvertimeRequest.Repository.Data
                 StartTime = overtimeFormVM.StartTime,
                 EndTime = overtimeFormVM.EndTime,
                 Task = overtimeFormVM.Task,
-                AdditionalSalary = overtimeFormVM.AdditionalSalary
+                AdditionalSalary = overtimeFormVM.Difference * 74000
             };
             conn.Add(overtimeApply);
             conn.SaveChanges();
@@ -61,7 +61,7 @@ namespace OvertimeRequest.Repository.Data
                     StartTime = item.StartTime,
                     EndTime = item.EndTime,
                     Task = item.Task,
-                    AdditionalSalary = item.AdditionalSalary
+                    AdditionalSalary = item.Difference * 74000
                 };
                 conn.Add(overtimeApply);
                 conn.SaveChanges();
@@ -77,13 +77,13 @@ namespace OvertimeRequest.Repository.Data
             return result;
         }
 
-        public IEnumerable<OvertimeFormVM> GetAllRequest()
+        public IEnumerable<OvertimeResponseVM> GetAllRequest()
         {
             var all = (
                 from e in conn.Employees
                 join f in conn.overtimeApplyEmployees on e.NIP equals f.NIP
                 join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
-                select new OvertimeFormVM
+                select new OvertimeResponseVM
                 {
                     OvertimeId = f.OvertimeApply.OvertimeId,
                     OvertimeName = f.OvertimeApply.OvertimeName,
@@ -98,14 +98,14 @@ namespace OvertimeRequest.Repository.Data
                 }).ToList();
             return all;
         }
-        public IEnumerable<OvertimeFormVM> GetRequestById(int id)
+        public IEnumerable<OvertimeResponseVM> GetRequestById(int id)
         {
             var all = (
                 from e in conn.Employees
                 join f in conn.overtimeApplyEmployees on e.NIP equals f.NIP
                 join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
                 where f.OvertimeEmployeeId == id
-                select new OvertimeFormVM
+                select new OvertimeResponseVM
                 {
                     AccountId = e.NIP,
                     OvertimeId = f.OvertimeApply.OvertimeId,
@@ -122,14 +122,14 @@ namespace OvertimeRequest.Repository.Data
             return all;
         }
 
-        public IEnumerable<OvertimeFormVM> GetRequestByNip(int nip)
+        public IEnumerable<OvertimeResponseVM> GetRequestByNip(int nip)
         {
             var all = (
                 from e in conn.Employees
                 join f in conn.overtimeApplyEmployees on e.NIP equals f.NIP
                 join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
                 where e.NIP == nip
-                select new OvertimeFormVM
+                select new OvertimeResponseVM
                 {
                     AccountId = e.NIP,
                     OvertimeId = f.OvertimeApply.OvertimeId,
@@ -145,7 +145,7 @@ namespace OvertimeRequest.Repository.Data
                 }).ToList();
             return all;
         }
-        public IEnumerable<OvertimeFormVM> GetAllRequestByStatus(int status)
+        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatus(int status)
         {
             var request = StatusRequest.Waiting;
             if(status == 1)
@@ -165,7 +165,7 @@ namespace OvertimeRequest.Repository.Data
                 join f in conn.overtimeApplyEmployees on e.NIP equals f.NIP
                 join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
                 where f.Status == request
-                select new OvertimeFormVM
+                select new OvertimeResponseVM
                 {
                     AccountId = e.NIP,
                     OvertimeId = f.OvertimeApply.OvertimeId,

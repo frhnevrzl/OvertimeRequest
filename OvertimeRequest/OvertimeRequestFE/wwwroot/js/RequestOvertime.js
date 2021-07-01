@@ -19,7 +19,7 @@ function AddListOvertime() {
             StartTime: concatDateWithHoursMinute($("#date").val(), $("#stime").val()),
             EndTime: concatDateWithHoursMinute($("#date").val(), $("#etime").val()),
             Task: $("#task").val(),
-            AdditionalSalary: additionalSalary(difference)
+            Difference: difference
         }
         listOvertime.push(tempList);
         var tableBody = document.querySelector("table > tbody");
@@ -33,15 +33,22 @@ function AddListOvertime() {
         cell2.innerHTML = `<td><input style="border:none;" name="etime" value="${document.getElementById("stime").value}" readonly></input></td>`;
         cell3.innerHTML = `<td><input style="border:none;" name="etime" value="${document.getElementById("etime").value}" readonly></input></td>`;
         cell4.innerHTML = `<td><input style="border:none;" name="task" value="${document.getElementById("task").value}" readonly></input></td>`;
-        cell5.innerHTML = `<td><input style="border:none;" name="addintionalSalary" value="${additionalSalary(difference)}" readonly></input><td>`;
+        cell5.innerHTML = `<td><button type="button" class="btn btn-info" onclick="deleteItem(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>`
+        //cell5.innerHTML = `<td><input style="border:none;" name="addintionalSalary" value="${additionalSalary(difference)}" readonly></input><td>`;
         rowIndex = rowIndex + 1;
     }
 }
-
-function additionalSalary(param) {
-    //ambil tengah dr 68k - 86k untuk data dummy dulu
-    return param * 74000;
+function deleteItem(e) {
+    var index = e.parentNode.parentNode.rowIndex - 1;
+    document.getElementById("bodyTableRequest").deleteRow(index);
+    totalOvertime = totalOvertime - listOvertime[index].difference;
+    rowIndex--;
+    listOvertime.splice(index, 1);
 }
+//function additionalSalary(param) {
+//    //ambil tengah dr 68k - 86k untuk data dummy dulu
+//    return param * 74000;
+//}
 
 function concatDateWithHoursMinute(date, hoursMinute) {
     return date + ' ' + hoursMinute + ":00";

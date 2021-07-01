@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OvertimeRequest.ViewModels
 {
-    public class OvertimeFormVM
+    public class OvertimeResponseVM
     {
         public int OvertimeId { get; set; }
         public string OvertimeName { get; set; }
@@ -18,7 +18,7 @@ namespace OvertimeRequest.ViewModels
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Task { get; set; }
-        public int Difference { get; set; }
+        public int AdditionalSalary { get; set; }
         public StatusRequest Status { get; set; }
 
     }
