@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
+    ViewData["Role"] = @ViewBag.sessionRole;
+    ViewData["Email"] = @ViewBag.sessionEmail;
+    ViewData["NIP"] = @ViewBag.sessionNip;
+}
+<h1>Request History @ViewData["Role"]</h1>
+@*<input id="role" value=" @ViewData["Role"]" />*@
+<table id="tableRequestHistory" class="table table-responsive table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>NIP</th>
+            <th>Employee Name</th>
+            <th>Submission Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="bodyManager">
+    </tbody>
+</table>
+<input id="nips" style="display:none" value="@ViewData["NIP"]">
+<input id="role" style="display:none" value="@ViewData["Role"]">
+<input id="emailS" style="display:none" value="@ViewData["Email"]">
+@section scripts{
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="~/js/Profile.js" asp-append-version="true"></script>
+}

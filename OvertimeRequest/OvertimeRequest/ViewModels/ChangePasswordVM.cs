@@ -8,13 +8,10 @@ namespace OvertimeRequest.ViewModels
 {
     public class ChangePasswordVM
     {
-        [Required]
         public string NIP { get; set; }
         [Required]
         public string OldPassword { get; set; }
         [Required]
         public string NewPassword { get; set; }
-        [Compare("NewPassword"), Required]
-        public string ConfirmPassword { get; set; }
     }
 }

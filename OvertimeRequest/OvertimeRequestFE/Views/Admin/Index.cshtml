@@ -1,25 +1,26 @@
 ﻿@{
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
+    ViewData["NIP"] = @ViewBag.sessionNip;
 }
-<div class="container container-fluid">
-    <h1>Employee List</h1>
-    <table id="tableEmployee" class="table table-responsive table-hover table-bordered">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>NIP</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Delete</th>
-                <th>Update</th>
-            </tr>
-        </thead>
-        <tbody id="bodyPerson">
-        </tbody>
-    </table>
-</div>
+
+<h1>Employee List</h1>
+<table id="tableEmployee" class="table table-responsive table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>NIP</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Delete</th>
+            <th>Update Password</th>
+            <th>Update Role</th>
+        </tr>
+    </thead>
+    <tbody id="bodyPerson">
+    </tbody>
+</table>
 <div class="modal fade" id="modalChangePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -28,7 +29,8 @@
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="bodyMChangePass">
-                <form id="formPersonUpd" action="">
+                <form id="formPersonUpd" action="javascript:UpdatePassword()">
+                    <input id="nip" style="display:none" value="@ViewData["NIP"]">
                     <div class="row">
                         <div class="col-6 my-1">
                             <label for="oldPassword" class="col-form-label">Old Password</label>

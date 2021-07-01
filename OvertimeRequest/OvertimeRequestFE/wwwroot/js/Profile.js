@@ -70,3 +70,64 @@ function Update() {
     })
     console.log(obj);
 }
+
+$(document).ready(function () {
+    var stringnip = $("#nips").val();
+    $('#tableRequestHistory').DataTable({
+        ajax: {
+            url: "https://localhost:44364/API/overtimeapply/getrequestbynip/" + stringnip,
+            dataSrc: ''
+        },
+        columns: [
+            {
+                "data": null, "sortable": true,
+                "render": function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            {
+                "data": 'nip'
+            },
+            {
+                "data": 'overtimeName'
+            },
+            {
+                "render": function (data, type, row) {
+                    return formatDate(row.submissionDate);
+                }
+                /*"data": 'submissionDate'*/
+            },
+            {
+                /*                "data": 'status'*/
+                "render": function (data, type, row) {
+                    if (row.status != null) {
+                        if (row.status == 0) {
+                            return ("Waiting For Approval");
+                        }
+                        else if (row.status == 1) {
+                            return ("Approved By Manager");
+                        }
+                        else if (row.status == 2) {
+                            return ("Approved By Finance Manager");
+                        }
+                        else if (row.status == 3) {
+                            return ("Rejected");
+                        }
+                    }
+                    else {
+                        return ("No Data");
+                    }
+                }
+            }
+        ]
+    });
+});
+function formatDate(param) {
+    var date = new Date(param);
+    var month = String(date.getMonth() + 1);
+    var day = String(date.getDate());
+    var year = String(date.getFullYear());
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return `${day}-${month}-${year}`;
+}
