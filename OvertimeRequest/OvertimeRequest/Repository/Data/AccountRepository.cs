@@ -37,6 +37,7 @@ namespace OvertimeRequest.Repository.Data
             var claims = new List<Claim>
             {
                 new Claim("Email", search.Email),
+                new Claim("NIP", search.NIP.ToString()),
                 //new Claim(ClaimTypes.Role, searchRole.Roles.RoleName)
                 new Claim("role", searchRole.Role.RoleName)
 
@@ -164,7 +165,8 @@ namespace OvertimeRequest.Repository.Data
                     Email = e.Email,
                     Phone = e.Phone,
                     ManagerId = e.ManagerId,
-                    RoleId = ar.RoleId
+                    RoleId = ar.RoleId,
+                    Password =  a.Password
 
                 }).ToList();
             return get.FirstOrDefault(p => p.NIP == nip); ;

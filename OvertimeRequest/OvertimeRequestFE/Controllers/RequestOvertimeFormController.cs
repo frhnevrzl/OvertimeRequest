@@ -27,6 +27,10 @@ namespace OvertimeRequestFE.Controllers
                 {
                     return View();
                 }
+                else if (ViewBag.sessionRole == "Manager")
+                {
+                    return View();
+                }
                 else
                     return RedirectToAction("index", "Home");
             }

@@ -21,6 +21,7 @@ namespace OvertimeRequestFE.Controllers
 
             ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
             ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;
+            ViewBag.sessionNip = tokenS.Claims.First(claim => claim.Type == "NIP").Value;
             ViewData["Role"] = ViewBag.sessionRole;
             if (ViewBag.sessionEmail != null)
             {

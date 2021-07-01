@@ -1,9 +1,10 @@
-﻿function get(stringnik){
+﻿var stringnip = $("#nip").val();
+function get() {
     $.ajax({
-        url: 'https://localhost:44364/API/account/GetProfileById' + stringnik,
+        url: 'https://localhost:44364/API/account/GetProfileById/' + stringnip,
         dataSrc: ''
     }).done((result) => {
-        $('#Nip').val(result.nik);
+        $('#Nip').val(result.nip);
         $('#FirstName').val(result.firstName);
         $('#LastName').val(result.lastName);
         $('#Phone').val(result.phone);
@@ -25,10 +26,11 @@
     }).fail((error) => {
         console.log(error);
     });
+    console.log(stringnip);
 }
 function Update() {
     var obj = new Object();
-    obj.NIK = $('#Nip').val();
+    obj.NIP = $('#Nip').val();
     obj.FirstName = $("#FirstName").val();
     obj.LastName = $("#LastName").val();
     obj.Phone = parseInt($("#Phone").val());
@@ -37,12 +39,12 @@ function Update() {
     obj.Email = $("#Email").val();
     obj.Password = $("#Password").val();
     obj.Gender = $("#gender").val();
-    obj.Religion = parseInt($("#religion").val());
+    obj.Religion = $("#religion").val();
     obj.DepartmentId= parseInt($("#departmentId").val());
     obj.ManagerId= parseInt($("#inputManagerId").val());
 
     $.ajax({
-        url: 'https://localhost:44364/API/account/updateprofile',
+        url: 'https://localhost:44364/API/account/updateprofile/',
         type: "POST",
         headers: {
             'Accept': 'application/json',
@@ -66,4 +68,5 @@ function Update() {
         //alert("Gagal");
         console.log(error);
     })
+    console.log(obj);
 }

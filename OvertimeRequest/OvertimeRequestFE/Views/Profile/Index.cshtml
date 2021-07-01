@@ -1,9 +1,13 @@
 ﻿@{
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
+    ViewData["NIP"] = @ViewBag.sessionNip;
 }
 
 <div class="container-fluid">
+
+    <input id="nip" style="display:none" value="@ViewData["NIP"]">
     <h2>My Profile</h2>
+    <button type="button" class="btn btn-info " onclick="get()">Show Profile</button>
     <form id="formEmployeeUpd" action="javascript:Update()">
         <div class="row">
             <div class="col-6 my-1">

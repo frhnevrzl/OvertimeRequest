@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var urlPost = "";
-    if ($("#role").val() == "Manager") {
+    if ($("#nip").val() == "Manager") {
         urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=0";
     } else if ($("#role").val()  == "Finance") {
         urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=1";
@@ -19,6 +19,14 @@
             },
             {
                 "data": 'nip'
+            },
+            {
+                "render": function (data, type, row) {
+                    return row.firstName + " " + row.lastName;
+                }
+            },
+            {
+                "data": 'submissionDate'
             },
             {
 /*                "data": 'status'*/
@@ -41,15 +49,6 @@
                         return ("No Data");
                     }
                 }
-            },
-            {
-                "data": 'overtimeId'
-            },
-            {
-                "data": 'startTime'
-            },
-            {
-                "data": 'endTime'
             },
             {
                 "render": function (data, type, row) {
