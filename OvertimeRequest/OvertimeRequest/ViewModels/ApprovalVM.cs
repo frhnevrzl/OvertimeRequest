@@ -9,6 +9,7 @@ namespace OvertimeRequest.ViewModels
     {
         public int NIP { get; set; }
         public int Status { get; set; }
+        public string Email { get; set; }
         public int OvertimeApplyId { get; set; }
     }
 }

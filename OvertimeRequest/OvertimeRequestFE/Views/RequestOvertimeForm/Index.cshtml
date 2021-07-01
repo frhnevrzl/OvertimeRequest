@@ -1,6 +1,10 @@
 ﻿@{
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
+    ViewData["NIP"] = @ViewBag.sessionNip;
+    ViewData["Email"] = @ViewBag.sessionEmail;
 }
+<input id="nips" style="display:none" value="@ViewData["NIP"]">
+<input id="emails" style="display:none" value="@ViewData["Email"]">
 <div class="card card-default">
     <div class="card-header">
         <h3 class="card-title text-center" style="color:black"><b>Overtime Request Form</b></h3>

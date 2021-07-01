@@ -53,7 +53,7 @@ function Insert() {
     obj.Gender = $("#gender").val();
     obj.Religion = $("#religion").val();
     obj.DepartmentId = $("#departmentId").val();
-    obj.ManagerId = parseInt($("#inputManagerId").val());
+    //obj.ManagerId = parseInt($("#inputManagerId").val());
     var url = "https://localhost:44364/API/account/GetAllProfile"; 
     $.get(url, function (data) {
         if (data.find(element => element.email == obj.Email)) {

@@ -38,6 +38,7 @@ namespace OvertimeRequest.Repository.Data
             {
                 NIP = overtimeFormVM.NIP,
                 OvertimeApplyId = overtimeApply.OvertimeId,
+                Email = overtimeFormVM.Email,
                 Status = StatusRequest.Waiting
             };
             conn.Add(overtimeApplyEmployee);
@@ -69,6 +70,7 @@ namespace OvertimeRequest.Repository.Data
                 {
                     NIP = item.NIP,
                     OvertimeApplyId = overtimeApply.OvertimeId,
+                    Email = item.Email,
                     Status = StatusRequest.Waiting
                 };
                 conn.Add(overtimeApplyEmployee);
@@ -223,14 +225,17 @@ namespace OvertimeRequest.Repository.Data
             if (approvalVM.Status == 1)
             {
                 overtimeApplyEmployee.Status = StatusRequest.ApproveByManager;
+                sendEmail.SendApproveNotificationToEmployee(overtimeApplyEmployee.Email);
             }
             else if (approvalVM.Status == 2)
             {
                 overtimeApplyEmployee.Status = StatusRequest.ApproveByFinance;
+                sendEmail.SendApproveNotificationToEmployee(overtimeApplyEmployee.Email);
             }
             else if (approvalVM.Status == 3)
             {
                 overtimeApplyEmployee.Status = StatusRequest.Reject;
+                sendEmail.SendRejectNotificationToEmployee(overtimeApplyEmployee.Email);
             }
             conn.Update(overtimeApplyEmployee);
             conn.SaveChanges();

@@ -1,9 +1,11 @@
 ﻿@{
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
     ViewData["Role"] = @ViewBag.sessionRole;
+    ViewData["Email"] = @ViewBag.sessionEmail;
 }
 <div class="container container-fluid">
-    <input id="role" style="display:none" value="@ViewData["role"]">
+    <input id="role" style="display:none" value="@ViewData["Role"]">
+    <input id="emailS" style="display:none" value="@ViewData["Email"]">
     <h1>Approval @ViewData["Role"]</h1>
     @*<input id="role" value=" @ViewData["Role"]" />*@
     <table id="tableOvertimeapply" class="table table-responsive table-hover table-bordered">
@@ -21,6 +23,7 @@
         </tbody>
     </table>
 </div>
+
 <div class="modal fade" id="detailapprove" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -53,6 +56,7 @@
                     </div>
                     <div>
                         <input type="text" class="form-control" style="display:none" id="overtimeid">
+                        <input type="text" class="form-control" style="display:none" id="email">
                         <input type="text" class="form-control" style="display:none" id="nip">
                     </div>
                     <div class="modal-footer">

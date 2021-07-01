@@ -15,6 +15,7 @@ namespace OvertimeRequest.Models
         public StatusRequest Status { get; set; }
         public virtual Employee Employee { get; set; }
         public int NIP { get; set; }
+        public string Email { get; set; }
         public virtual OvertimeApply OvertimeApply { get; set; }
         public int OvertimeApplyId { get; set; }
 

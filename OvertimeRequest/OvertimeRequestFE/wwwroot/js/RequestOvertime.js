@@ -3,6 +3,8 @@ var listOvertime = [];
 var totalOvertime = 0;
 var table = null;
 var rowIndex = 0;
+var nips = $("#nips").val();
+var emails = $("#emails").val();
 
 function AddListOvertime() {
     //hitung durasi
@@ -13,7 +15,8 @@ function AddListOvertime() {
     } else {
         document.getElementById("overtimeLimit").style.display = "none";
         var tempList = {
-            NIP: $("#nip").val(),
+            NIP: nips,
+            Email: emails,
             SubmissionDate : $("#date").val(),
             OvertimeName: $("#overtimeTitle").val(),
             StartTime: concatDateWithHoursMinute($("#date").val(), $("#stime").val()),

@@ -43,7 +43,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.comm", "wwwsawwwsdwwwszwwwsx");
+            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.comm", "Bastionmisawa15");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
@@ -67,7 +67,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "wwwsawwwsdwwwszwwwsx");
+            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
@@ -82,7 +82,7 @@ namespace OvertimeRequest.Handler
             MailMessage mm = new MailMessage("evirzaldesu@gmail.com", email)
             {
                 Subject = "Approval Result - " + time24 + ",",
-                Body = "Hi," + "<br/> Your approval Has Been Approved" + "<br/> Have a Day Off",
+                Body = "Hi," + "<br/> Your approval Has Been Approved",
 
                 IsBodyHtml = true
             };
@@ -91,7 +91,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "wwwsawwwsdwwwszwwwsx");
+            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
@@ -106,7 +106,7 @@ namespace OvertimeRequest.Handler
             MailMessage mm = new MailMessage("evirzaldesu@gmail.com", email)
             {
                 Subject = "Approval Result - " + time24 + ",",
-                Body = "Hi," + "<br/> Your approval Has Been Rejected" + "<br/> We are Sorry to Hear That",
+                Body = "Hi," + "<br/> Your approval Has Been Rejected",
 
                 IsBodyHtml = true
             };
@@ -115,7 +115,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "wwwsawwwsdwwwszwwwsx");
+            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;

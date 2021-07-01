@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var urlPost = "";
-    if ($("#nip").val() == "Manager") {
+    if ($("#role").val() == "Manager") {
         urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=0";
     } else if ($("#role").val()  == "Finance") {
         urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=1";
@@ -26,7 +26,10 @@
                 }
             },
             {
-                "data": 'submissionDate'
+                "render": function (data, type, row) {
+                    return formatDate(row.submissionDate);
+                }
+                /*"data": 'submissionDate'*/
             },
             {
 /*                "data": 'status'*/
@@ -71,6 +74,7 @@ function detail(overtimeid) {
         console.log(JSON.stringify(result));
         $("#overtimeid").val(result[0]['overtimeId']);
         $("#nip").val(result[0]['nip']);
+        $("#email").val(result[0]['email']);
         $("#submissionDate").val(formatDate(result[0]['submissionDate']));
         $("#requestDetail").val(result[0]['task']);
         var urlGet = "https://localhost:44364/API/account/GetProfileById/" + result[0]['nip'];
@@ -90,6 +94,7 @@ function detail(overtimeid) {
 $("#UpdateBtn").on("click", function () {
     var objectData = new Object();
     objectData.NIP = $("#nip").val();
+    objectData.Email = $("#email").val();
     objectData.overtimeApplyId = $("#overtimeid").val();
     if ($("#role").val() == "Manager") {
         objectData.Status = 1;
@@ -120,6 +125,7 @@ $("#UpdateBtn").on("click", function () {
             confirmButtonText: 'Next'
         });
     });
+    console.log(objectData.Email);
 });
 
 $("#rejectBtn").on("click", function () {

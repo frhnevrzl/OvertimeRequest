@@ -20,7 +20,6 @@ namespace OvertimeRequestFE.Controllers
 
             ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
             ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;
-            ViewData["Role"] = ViewBag.sessionRole;
             if (ViewBag.sessionEmail != null)
             {
                 if (ViewBag.sessionRole == "Manager")
