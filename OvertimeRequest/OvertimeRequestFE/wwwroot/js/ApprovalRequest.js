@@ -78,9 +78,9 @@ function detail(overtimeid) {
         $("#submissionDate").val(formatDate(result[0]['submissionDate']));
         $("#requestDetail").val(result[0]['task']);
         $("#overtimeTitle").val(result[0]['overtimeName']);
-        var durasi = moment((result[0]['endTime']), 'hh:mm:ss').diff(moment((result[0]['startTime']), 'hh:mm:ss'), 'hours');
+        var durasi = result[0]['additionalSalary'] / 74000 + "jam";
         $("#durasi").val(durasi);
-        
+        $("#additionalsalary").val(result[0]['additionalSalary']);
     }).fail((error) => {
         Swal.fire({
             title: 'Error!',
