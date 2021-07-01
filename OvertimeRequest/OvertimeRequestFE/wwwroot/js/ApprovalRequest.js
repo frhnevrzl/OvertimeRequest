@@ -77,10 +77,10 @@ function detail(overtimeid) {
         $("#email").val(result[0]['email']);
         $("#submissionDate").val(formatDate(result[0]['submissionDate']));
         $("#requestDetail").val(result[0]['task']);
-        var urlGet = "https://localhost:44364/API/account/GetProfileById/" + result[0]['nip'];
-        $.get(urlGet, function (data) {
-            $("#employeename").val(data['firstName'] + " " + data['lastName']);
-        });
+        $("#overtimeTitle").val(result[0]['overtimeName']);
+        var durasi = moment((result[0]['endTime']), 'hh:mm:ss').diff(moment((result[0]['startTime']), 'hh:mm:ss'), 'hours');
+        $("#durasi").val(durasi);
+        
     }).fail((error) => {
         Swal.fire({
             title: 'Error!',
@@ -89,7 +89,9 @@ function detail(overtimeid) {
             confirmButtonText: 'Next'
         })
     });
+    console.log(durasi);
 }
+
 
 $("#UpdateBtn").on("click", function () {
     var objectData = new Object();

@@ -37,9 +37,9 @@
                 <form id="formPersonUpd" action="">
                     <div class="row">
                         <div class="col-6 my-1">
-                            <label for="employeename" class="col-form-label">Employee Name</label>
-                            <input type="text" class="form-control" id="employeename" aria-describedby="employeenameHelp">
-                            <div id="employeenameHelp" class="form-text"></div>
+                            <label for="overtimeTitle" class="col-form-label">Overtime Title</label>
+                            <input type="text" class="form-control" id="overtimeTitle" aria-describedby="overtimeTitleHelp">
+                            <div id="overtimeTitleHelp" class="form-text"></div>
                         </div>
                         <div class="col-6 my-1">
                             <label for="submissionDate" class="col-form-label">Submission Date</label>
@@ -49,9 +49,14 @@
                     </div>
                     <div class="row">
                         <div class="col-6 my-1">
-                            <label for="requestDetail" class="col-form-label">Request Details</label>
+                            <label for="requestDetail" class="col-form-label">Overtime Details</label>
                             <input type="text" class="form-control" id="requestDetail" aria-describedby="requestDetailHelp" disabled>
                             <div id="requestDetailHelp" class="form-text"></div>
+                        </div>
+                        <div class="col-6 my-1">
+                            <label for="durasi" class="col-form-label">Durasi</label>
+                            <input type="number" class="form-control" id="durasi" aria-describedby="durasiHelp">
+                            <div id="durasiHelp" class="form-text"></div>
                         </div>
                     </div>
                     <div>
@@ -69,5 +74,7 @@
     </div>
 </div>
 @section scripts{
+
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="~/js/ApprovalRequest.js" asp-append-version="true"></script>
 }

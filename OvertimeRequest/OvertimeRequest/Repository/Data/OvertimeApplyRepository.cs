@@ -174,6 +174,8 @@ namespace OvertimeRequest.Repository.Data
                     OvertimeName = f.OvertimeApply.OvertimeName,
                     SubmissionDate = f.OvertimeApply.SubmissionDate,
                     NIP = f.NIP,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
                     StartTime = f.OvertimeApply.StartTime,
                     EndTime = f.OvertimeApply.EndTime,
                     Task = f.OvertimeApply.Task,
