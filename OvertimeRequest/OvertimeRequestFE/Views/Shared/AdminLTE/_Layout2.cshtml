@@ -66,6 +66,26 @@
                             </li>
                         </ul>
                     </li>
+                    @if (ViewBag.sessionRole == "Admin")
+                    {
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-address-card mr-2"></i>
+                                <p>
+                                    Administering
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/admin/index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>List Employee</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-tachometer-alt mr-2"></i>
@@ -79,10 +99,13 @@
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Request Overtime</p>
                                 </a>
-                                <a href="~/approvalrequest/index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Approval Request</p>
-                                </a>
+                                @if (ViewBag.sessionRole == "Manager" || ViewBag.sessionRole == "Finance")
+                                {
+                                    <a href="~/approvalrequest/index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Approval Request</p>
+                                    </a>
+                                }
                             </li>
                         </ul>
                     </li>

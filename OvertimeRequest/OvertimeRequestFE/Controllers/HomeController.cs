@@ -22,6 +22,14 @@ namespace OvertimeRequestFE.Controllers
 
         public IActionResult Index()
         {
+            var token = HttpContext.Session.GetString("JWToken");
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token);
+            var tokenS = jsonToken as JwtSecurityToken;
+
+
+            ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
+            ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;
             return View();
         }
 
