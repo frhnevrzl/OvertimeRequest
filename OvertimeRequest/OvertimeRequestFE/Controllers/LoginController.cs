@@ -46,5 +46,10 @@ namespace OvertimeRequestFE.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("login", "Login");
         }
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
     }
 }

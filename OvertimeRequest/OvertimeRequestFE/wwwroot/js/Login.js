@@ -118,3 +118,38 @@ function Insert() {
             }, false)
         })
 })()
+
+function ForgotPassword() {
+    var objectReset = new Object();
+    objectReset.Email = $("#inputEmailFP").val();
+    $.ajax({
+        url: 'https://localhost:44364/API/account/ResetPassword',
+        type: "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(objectReset),
+        dataType: "json"
+    }).done((result) => {
+        console.log("resultDone: " + result);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your New Password Has Been Sent',
+            showConfirmButton: false,
+            timer: 1500
+        }) //buat alert pemberitahuan jika success
+    }).fail((error) => {
+        console.log("eror: " + error);
+/*        alert("Wrong Email or Password");*/
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Password Failed To Send',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    });
+    console.log(objectReset.Email);
+}

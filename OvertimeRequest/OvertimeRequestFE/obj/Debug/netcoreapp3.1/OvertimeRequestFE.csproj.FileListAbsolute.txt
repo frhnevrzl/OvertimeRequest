@@ -197,3 +197,4 @@ D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreap
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.pdb
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.genruntimeconfig.cache
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\RequestHistory.cshtml.g.cs
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
