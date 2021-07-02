@@ -66,8 +66,8 @@ namespace OvertimeRequest.Repository.Data
                     Salary = register.Salary,
                     Email = register.Email,
                     Phone = register.Phone,
-                    DepartmentId = register.DepartmentId,
-                    ManagerId = register.ManagerId,
+                    DepartmentId = 2,
+                    ManagerId = 0,
                 };
                 conn.Add(employee);
                 result = conn.SaveChanges();

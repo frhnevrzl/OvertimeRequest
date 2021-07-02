@@ -12,14 +12,14 @@ namespace OvertimeRequest.Handler
         public void SendNotification(string resetCode, string email)
         {
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
+            smtp.Credentials = new NetworkCredential("utimarutiiii@gmail.com", "ImNumber1234");
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
-            NetworkCredential nc = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
+            NetworkCredential nc = new NetworkCredential("utimarutiiii@gmail.com", "ImNumber1234");
             smtp.Credentials = nc;
             MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("evirzaldesu@gmail.com", "Overtime Request Reset Password");
+            mailMessage.From = new MailAddress("utimarutiiii@gmail.com", "Overtime Request Reset Password");
             mailMessage.To.Add(new MailAddress(email));
             mailMessage.Subject = "Reset Password " + DateTime.Now.ToString("HH:mm:ss");
             mailMessage.IsBodyHtml = false;
@@ -31,7 +31,7 @@ namespace OvertimeRequest.Handler
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
 
-            MailMessage mm = new MailMessage("evirzaldesu@gmail.com", email)
+            MailMessage mm = new MailMessage("utimarutiiii@gmail.com", email)
             {
                 Subject = "Email Register Confirmation - " + time24 + ",",
                 Body = "Hi," + "<br/> Your password is <b>B0o7c@mp</b>" + "<br/> Please login with your password.",
@@ -43,7 +43,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.comm", "Bastionmisawa15");
+            NetworkCredential NetworkCred = new NetworkCredential("utimarutiiii@gmail.comm", "ImNumber1234");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
@@ -55,7 +55,7 @@ namespace OvertimeRequest.Handler
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
 
-            MailMessage mm = new MailMessage("evirzaldesu@gmail.com", email)
+            MailMessage mm = new MailMessage("utimarutiiii@gmail.com", email)
             {
                 Subject = "Request Notification - " + time24 + ",",
                 Body = "Hi," + "<br/> Your approval has been sent to your Supervisor" + "<br/> Please Wait for a momment",
@@ -67,7 +67,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
+            NetworkCredential NetworkCred = new NetworkCredential("utimarutiiii@gmail.com", "ImNumber1234");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
@@ -79,7 +79,7 @@ namespace OvertimeRequest.Handler
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
 
-            MailMessage mm = new MailMessage("evirzaldesu@gmail.com", email)
+            MailMessage mm = new MailMessage("utimarutiiii@gmail.com", email)
             {
                 Subject = "Approval Result - " + time24 + ",",
                 Body = "Hi," + "<br/> Your approval Has Been Approved",
@@ -91,7 +91,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
+            NetworkCredential NetworkCred = new NetworkCredential("utimarutiiii@gmail.com", "ImNumber1234");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
@@ -103,7 +103,7 @@ namespace OvertimeRequest.Handler
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
 
-            MailMessage mm = new MailMessage("evirzaldesu@gmail.com", email)
+            MailMessage mm = new MailMessage("utimarutiiii@gmail.com", email)
             {
                 Subject = "Approval Result - " + time24 + ",",
                 Body = "Hi," + "<br/> Your approval Has Been Rejected",
@@ -115,7 +115,7 @@ namespace OvertimeRequest.Handler
                 Host = "smtp.gmail.com",
                 EnableSsl = true
             };
-            NetworkCredential NetworkCred = new NetworkCredential("evirzaldesu@gmail.com", "Bastionmisawa15");
+            NetworkCredential NetworkCred = new NetworkCredential("utimarutiiii@gmail.com", "ImNumber1234");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;

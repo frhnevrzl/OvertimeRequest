@@ -52,7 +52,7 @@ function Insert() {
     obj.Password = $("#inputPassword").val();
     obj.Gender = $("#gender").val();
     obj.Religion = $("#religion").val();
-    obj.DepartmentId = $("#departmentId").val();
+    //obj.DepartmentId = $("#departmentId").val();
     //obj.ManagerId = parseInt($("#inputManagerId").val());
     var url = "https://localhost:44364/API/account/GetAllProfile"; 
     $.get(url, function (data) {
