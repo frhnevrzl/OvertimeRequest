@@ -213,6 +213,14 @@ namespace OvertimeRequest.Repository.Data
 
             return conn.SaveChanges();
         }
+
+        public int updateRoles(RegisterVM register)
+        {
+            AccountRole accountRole = conn.AccountRoles.First(p => p.AccountId == register.NIP);
+            accountRole.RoleId = register.RoleId;
+            conn.Update(accountRole);
+            return conn.SaveChanges();
+        }
     }
 
 }

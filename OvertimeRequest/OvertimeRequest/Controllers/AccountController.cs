@@ -145,5 +145,17 @@ namespace OvertimeRequest.Controllers
             else
                 return NotFound("Record Not Match");
         }
+
+        [HttpPut("UpdateRoles")]
+        public ActionResult UpdateRoles(RegisterVM register)
+        {
+            var put = repo.updateRoles(register);
+            if (put > 0)
+            {
+                return Ok("Record Changed");
+            }
+            else
+                return NotFound("Record Not Match");
+        }
     }
 }
