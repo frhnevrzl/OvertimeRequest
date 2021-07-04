@@ -1,10 +1,11 @@
 ﻿$(document).ready(function () {
     var urlPost = "";
     if ($("#role").val() == "Manager") {
-        urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=0";
+        urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatusAndManagerId?status=0&managerId="+$("#managerId").val();
     } else if ($("#role").val()  == "Finance") {
         urlPost = "https://localhost:44364/api/overtimeapply/GetAllRequestByStatus?status=1";
     }
+    console.log(urlPost);
     $('#tableOvertimeapply').DataTable({
         ajax: {
             url: urlPost,

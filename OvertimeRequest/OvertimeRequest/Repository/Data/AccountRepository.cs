@@ -38,7 +38,8 @@ namespace OvertimeRequest.Repository.Data
                 new Claim("Email", search.Email),
                 new Claim("NIP", search.NIP.ToString()),
                 //new Claim(ClaimTypes.Role, searchRole.Roles.RoleName)
-                new Claim("role", searchRole.Role.RoleName)
+                new Claim("role", searchRole.Role.RoleName),
+                new Claim("managerId", search.ManagerId.ToString()) 
 
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

@@ -129,10 +129,25 @@ namespace OvertimeRequest.Controllers
                 return BadRequest(new { status = "Bad request", errorMessage = "Data input is not valid" });
             }
         }
+
+        //buat Finance
         [HttpGet("GetAllRequestByStatus")]
         public ActionResult GetAllRequestByStatus([FromQuery(Name = "status")] int status)
         {
             var get = repo.GetAllRequestByStatus(status);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+                return NotFound("No Record");
+        }
+
+        //buat Manager
+        [HttpGet("GetAllRequestByStatusAndManagerId")]
+        public ActionResult GetAllRequestByStatusAndManagerId([FromQuery(Name = "status")] int status, [FromQuery(Name = "managerId")] int managerId)
+        {
+            var get = repo.GetAllRequestByStatusAndManagerId(status, managerId);
             if (get != null)
             {
                 return Ok(get);

@@ -147,10 +147,51 @@ namespace OvertimeRequest.Repository.Data
                 }).ToList();
             return all;
         }
-        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatus(int status)
+
+        //buatManager
+        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatusAndManagerId(int status, int managerId)
         {
             var request = StatusRequest.Waiting;
             if(status == 1)
+            {
+                request = StatusRequest.ApproveByManager;
+            }
+            else if (status == 2)
+            {
+                request = StatusRequest.ApproveByFinance;
+            }
+            else if (status == 3)
+            {
+                request = StatusRequest.Reject;
+            }
+            var all = (
+                from e in conn.Employees
+                join f in conn.overtimeApplyEmployees on e.NIP equals f.NIP
+                join o in conn.OvertimeApplies on f.OvertimeApplyId equals o.OvertimeId
+                where f.Status == request && e.ManagerId == managerId
+                select new OvertimeResponseVM
+                {
+                    AccountId = e.NIP,
+                    OvertimeId = f.OvertimeApply.OvertimeId,
+                    OvertimeName = f.OvertimeApply.OvertimeName,
+                    SubmissionDate = f.OvertimeApply.SubmissionDate,
+                    NIP = f.NIP,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    StartTime = f.OvertimeApply.StartTime,
+                    EndTime = f.OvertimeApply.EndTime,
+                    Task = f.OvertimeApply.Task,
+                    AdditionalSalary = f.OvertimeApply.AdditionalSalary,
+                    Status = f.Status
+
+                }).ToList();
+            return all;
+        }
+        //buat Finance
+        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatus(int status)
+        {
+            var request = StatusRequest.Waiting;
+            if (status == 1)
             {
                 request = StatusRequest.ApproveByManager;
             }
