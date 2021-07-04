@@ -31,6 +31,9 @@
                 "data": 'email'
             },
             {
+                "data": 'managerId'
+            },
+            {
                 "render": function (data, type, row) {
                     return `<button type="button" class="btn btn-danger" onclick="deleted('${row.nip}')"><i class="fa fa-trash" aria-hidden="true"></i></button > `
                 }
