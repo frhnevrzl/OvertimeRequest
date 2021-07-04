@@ -60,7 +60,7 @@
             }
         ]
     });
-    console.log($("#role").val());
+/*    console.log($("#role").val());*/
 });
 function detail(overtimeid) {
     $.ajax({
