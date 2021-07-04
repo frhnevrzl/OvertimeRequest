@@ -74,17 +74,17 @@ function deleted(stringnip) {
         })
     });
 }
-function getOldPassword(stringnip) {
-    $.ajax({
-        url: 'https://localhost:44364/API/account/getprofilebyid/' + stringnip,
-        dataSrc: ''
-    }).done((result) => {
-        $("#nip").val(result.nip);
-        $('#oldPassword').val(result.password);
-    }).fail((error) => {
-        console.log(error);
-    });
-}
+//function getOldPassword(stringnip) {
+//    $.ajax({
+//        url: 'https://localhost:44364/API/account/getprofilebyid/' + stringnip,
+//        dataSrc: ''
+//    }).done((result) => {
+//        $("#nip").val(result.nip);
+//        $('#oldPassword').val(result.password);
+//    }).fail((error) => {
+//        console.log(error);
+//    });
+//}
 function UpdatePassword() {
     var obj = new Object();
     obj.NIP = $("#nip").val();

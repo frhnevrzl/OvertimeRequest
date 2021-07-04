@@ -33,7 +33,6 @@ namespace OvertimeRequest.Repository.Data
             var search = conn.Employees.SingleOrDefault(p => p.Email == login.Email);
             var searchRole = conn.AccountRoles.SingleOrDefault(p => p.AccountId == search.NIP);
 
-
             var claims = new List<Claim>
             {
                 new Claim("Email", search.Email),
