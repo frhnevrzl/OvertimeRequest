@@ -53,6 +53,37 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalAssignRole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Role Assign</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="bodyMChangePass">
+                <form id="formPersonUpd" action="javascript:">
+                    <input id="nip" style="display:none">
+                    <div class="row">
+                        <div class="col-6 my-1">
+                            <label for="name" class="col-form-label">Select Role</label>
+                            <select id="role" class="form-control" required>
+                                <option value="1">Admin</option>
+                                <option value="2">Manager</option>
+                                <option value="3">Employee</option>
+                                <option value="4">Finance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="UpdateBtn" type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts{
     <script src="~/js/Employee.js" asp-append-version="true"></script>
 }

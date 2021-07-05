@@ -45,7 +45,7 @@
             },
             {
                 "render": function (data, type, row) {
-                    return `<button type="button" class="btn btn-info" onclick="get('${row['nip']}')" data-toggle="modal" data-target="#modalChangeRole"><i class="fa fa-edit" aria-hidden="true"></i></button > `
+                    return `<button type="button" class="btn btn-info" onclick="get('${row['nip']}')" data-toggle="modal" data-target="#modalAssignRole"><i class="fa fa-edit" aria-hidden="true"></i></button > `
                 }
             }
         ]
