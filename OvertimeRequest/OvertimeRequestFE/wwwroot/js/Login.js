@@ -146,7 +146,7 @@ function ForgotPassword() {
         Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Password Failed To Send',
+            title: 'Password Failed To Send, You are not Registered yet',
             showConfirmButton: false,
             timer: 2000
         });

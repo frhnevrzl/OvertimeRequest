@@ -47,28 +47,36 @@
                 <!-- SidebarSearch Form -->
                 <ul class="nav nav-pills nav-sidebar flex-column mt-3" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="far fa-address-card mr-2"></i>
-                            <p>
-                                Profile
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="~/profile/index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>My Profile</p>
-                                </a>
-                                <a href="~/profile/changepassword" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Change Password</p>
-                                </a>
-                                <a href="~/profile/requesthistory" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Request History</p>
-                                </a>
-                            </li>
-                        </ul>
+                        @if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager" || ViewBag.sessionRole == "Finance" || ViewBag.sessionRole == "Admin")
+                        {
+
+                            <a href="#" class="nav-link">
+                                <i class="far fa-address-card mr-2"></i>
+                                <p>
+                                    Profile
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/profile/index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>My Profile</p>
+                                    </a>
+                                    <a href="~/profile/changepassword" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Change Password</p>
+                                    </a>
+                                    @if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager")
+                                    {
+                                        <a href="~/profile/requesthistory" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Request History</p>
+                                        </a>
+                                    }
+
+                                </li>
+                            </ul>
+                        }
                     </li>
                     @if (ViewBag.sessionRole == "Admin")
                     {
@@ -89,30 +97,37 @@
                             </ul>
                         </li>
                     }
+                    @if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager" || ViewBag.sessionRole == "Finance")
+                    {
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-tachometer-alt mr-2"></i>
+                                <p>
+                                    Apply Overtime
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    @if (ViewBag.sessionRole == "Manager" || ViewBag.sessionRole == "Employee")
+                                    {
+                                        <a href="~/requestovertimeform/index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Request Overtime</p>
+                                        </a>
+                                    }
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-tachometer-alt mr-2"></i>
-                            <p>
-                                Apply Overtime
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="~/requestovertimeform/index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Request Overtime</p>
-                                </a>
-                                @if (ViewBag.sessionRole == "Manager" || ViewBag.sessionRole == "Finance")
-                                {
-                                    <a href="~/approvalrequest/index" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Approval Request</p>
-                                    </a>
-                                }
-                            </li>
-                        </ul>
-                    </li>
+                                    @if (ViewBag.sessionRole == "Manager" || ViewBag.sessionRole == "Finance")
+                                    {
+                                        <a href="~/approvalrequest/index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Approval Request</p>
+                                        </a>
+                                    }
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
                 </ul>
             </div>
             <!-- /.sidebar -->

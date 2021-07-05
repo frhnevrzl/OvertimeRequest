@@ -97,6 +97,8 @@ C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeReque
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\ApprovalRequest\index.cshtml.g.cs
+C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
+C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\RequestHistory.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\bin\Debug\netcoreapp3.1\OvertimeRequest.deps.json
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\bin\Debug\netcoreapp3.1\OvertimeRequest.runtimeconfig.json
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\bin\Debug\netcoreapp3.1\OvertimeRequest.runtimeconfig.dev.json
@@ -180,8 +182,11 @@ D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreap
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\ApprovalRequest\index.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\ChangePassword.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\Index.cshtml.g.cs
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\RequestHistory.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\RequestOvertimeForm\Index.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AdminLTE\_Layout2.cshtml.g.cs
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -196,8 +201,3 @@ D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreap
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.dll
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.pdb
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\OvertimeRequestFE.genruntimeconfig.cache
-D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\RequestHistory.cshtml.g.cs
-D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
-C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
-C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\RequestHistory.cshtml.g.cs
-D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\ChangePassword.cshtml.g.cs
