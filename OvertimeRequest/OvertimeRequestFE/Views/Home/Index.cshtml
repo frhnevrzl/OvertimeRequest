@@ -1,13 +1,35 @@
 ﻿@{
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
+    ViewData["NIP"] = @ViewBag.sessionNip;
+    ViewData["FirstName"] = @ViewBag.sessionFName;
+    ViewData["LastName"] = @ViewBag.sessionLName;
 }
 
 <div class="container">
     <div>
         <p class="text-center">
-            <H3>Selamat Datang Di Aplikasi Overtime Request</H3>
+            <H3>Selamat Datang @ViewData["FirstName"] @ViewData["LastName"] Di Aplikasi Overtime Request</H3>
+            <h4>NIP Anda : @ViewData["NIP"]</h4>
         </p>
     </div>
 </div>
+@if (ViewBag.sessionRole == "Admin")
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+                <div class="card" id="UnivContainer">
+                    <div class="card-header bg-transparent border-success">Role Chart</div>
+                    <div class="card-body">
+                        <div id="UniCh"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="~/js/Admin.js" asp-append-version="true"></script>
 }

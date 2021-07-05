@@ -35,6 +35,8 @@ namespace OvertimeRequest.Repository.Data
 
             var claims = new List<Claim>
             {
+                new Claim("FirstName", search.FirstName),
+                new Claim("LastName", search.LastName),
                 new Claim("Email", search.Email),
                 new Claim("NIP", search.NIP.ToString()),
                 //new Claim(ClaimTypes.Role, searchRole.Roles.RoleName)

@@ -105,23 +105,31 @@ namespace OvertimeRequest.Controllers
         [HttpPut("ChangePassword")]
         public ActionResult ChangePassword(ChangePasswordVM changePasswordVM)
         {
+            //var acc = repo.Get(int.Parse(changePasswordVM.NIP));
+            //if (acc != null)
+            //{
+            //    if (Hashing.ValidatePassword(changePasswordVM.OldPassword, acc.Password))
+            //    {
+            //        var data = repo.ChangePassword(changePasswordVM);
+            //        return Ok(data);
+            //    }
+            //    else
+            //    {
+            //        return StatusCode(404, new { status = "404", message = "Wrong password" });
+            //    }
+            //}
+            //return NotFound();
             var acc = repo.Get(int.Parse(changePasswordVM.NIP));
             if (acc != null)
             {
-                if (Hashing.ValidatePassword(changePasswordVM.OldPassword, acc.Password))
-                {
-                    var data = repo.ChangePassword(changePasswordVM);
-                    return Ok(data);
-                }
-                else
-                {
-                    return StatusCode(404, new { status = "404", message = "Wrong password" });
-                }
+                var data = repo.ChangePassword(changePasswordVM);
+                return Ok(data);
             }
             return NotFound();
         }
-        //[EnableCors("AllowOrigin")]
-        [HttpPost("DeleteProfile/{nip}")]
+
+    //[EnableCors("AllowOrigin")]
+    [HttpPost("DeleteProfile/{nip}")]
         public ActionResult DeleteProfile(int nip)
         {
             var del = repo.DeleteProfile(nip);

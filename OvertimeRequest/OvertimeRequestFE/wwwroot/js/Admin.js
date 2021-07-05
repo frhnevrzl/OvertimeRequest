@@ -6,28 +6,15 @@ $.getJSON(url, function (response) {
     console.log(data);
     var dataCount = response.map(item => item.accountRoles.length);
     console.log(dataCount);
+
     var options = {
-        series: [{
-            data: dataCount
-        }],
+        series: dataCount,
         chart: {
-            type: 'bar',
-            height: 350
+            type: 'pie'
         },
-        plotOptions: {
-            bar: {
-                borderRadius: 4,
-                horizontal: true,
-            }
-        },
-        dataLabels: {
-            enabled: true
-        },
-        xaxis: {
-            categories: data,
-        }
+        labels: data
     };
 
-    var chart = new ApexCharts(document.querySelector("#SalCh"), options);
+    var chart = new ApexCharts(document.querySelector("#UniCh"), options);
     chart.render();
 });

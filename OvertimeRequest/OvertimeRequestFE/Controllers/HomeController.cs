@@ -27,7 +27,9 @@ namespace OvertimeRequestFE.Controllers
             var jsonToken = handler.ReadToken(token);
             var tokenS = jsonToken as JwtSecurityToken;
 
-
+            ViewBag.sessionNip = tokenS.Claims.First(claim => claim.Type == "NIP").Value;
+            ViewBag.sessionFName = tokenS.Claims.First(claim => claim.Type == "FirstName").Value;
+            ViewBag.sessionLName = tokenS.Claims.First(claim => claim.Type == "LastName").Value;
             ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
             ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;
             return View();

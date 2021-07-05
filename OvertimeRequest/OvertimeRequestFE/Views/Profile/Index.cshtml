@@ -7,7 +7,6 @@
 
     <input id="nip" style="display:none" value="@ViewData["NIP"]">
     <h2>My Profile</h2>
-    <button type="button" class="btn btn-info " onclick="get()">Show Profile</button>
     <form id="formEmployeeUpd" action="javascript:Update()">
         <div class="row">
             <div class="col-6 my-1">
@@ -47,7 +46,7 @@
             </div>
             <div class="col-6 my-1">
                 <label for="Password" class="col-form-label">Password</label>
-                <input type="password" class="form-control" id="Password" aria-describedby="passwordHelp" minlength="6">
+                <input type="password" class="form-control" id="Password" aria-describedby="passwordHelp" minlength="6" required>
                 <div id="passwordHelp" class="form-text"></div>
             </div>
             <div class="col-6 my-1">

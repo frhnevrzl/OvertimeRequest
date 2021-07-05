@@ -1,5 +1,5 @@
 ﻿var stringnip = $("#nip").val();
-function get() {
+$(document).ready(function () {
     $.ajax({
         url: 'https://localhost:44364/API/account/GetProfileById/' + stringnip,
         dataSrc: ''
@@ -18,7 +18,7 @@ function get() {
         $('#Birthdate').val(today);
         $('#Salary').val(result.salary);
         $('#Email').val(result.email);
-        $('#Password').val(result.password);
+        /*        $('#Password').val(result.password);*/
         $('#gender').val(result.gender);
         $('#religion').val(result.religion);
         $('#departmentId').val(result.departmentId);
@@ -27,7 +27,8 @@ function get() {
         console.log(error);
     });
     console.log(stringnip);
-}
+});
+   
 function Update() {
     var obj = new Object();
     obj.NIP = $('#Nip').val();
