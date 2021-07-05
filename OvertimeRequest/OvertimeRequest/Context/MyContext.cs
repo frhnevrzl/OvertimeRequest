@@ -52,7 +52,7 @@ namespace OvertimeRequest.Context
                 .HasMany(oa => oa.OvertimeApplyEmployees)
                 .WithOne(oe => oe.OvertimeApply);
 
-            modelBuilder.Entity<AccountRole>().HasKey(ar => new { ar.AccountId, ar.RoleId });
+            //modelBuilder.Entity<AccountRole>().HasKey(ar => new { ar.AccountId, ar.RoleId });
             modelBuilder.Entity<RegisterVM>().HasNoKey();
         }
 

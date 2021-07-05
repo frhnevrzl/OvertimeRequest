@@ -34,6 +34,9 @@
                 "data": 'managerId'
             },
             {
+                "data": 'roleId'
+            },
+            {
                 "render": function (data, type, row) {
                     return `<button type="button" class="btn btn-danger" onclick="deleted('${row.nip}')"><i class="fa fa-trash" aria-hidden="true"></i></button > `
                 }
@@ -122,11 +125,11 @@ function UpdatePassword() {
 
 function UpdateRoles() {
     var obj = new Object();
-    obj.AccountId = $("#nip").val();
+    obj.NIP = $("#nip").val();
     obj.RoleId = $("#role").val();
     $.ajax({
-        url: 'https://localhost:44364/API/accountrole/',
-        type: "POSt",
+        url: 'https://localhost:44364/API/account/updateroles',
+        type: "PUT",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
