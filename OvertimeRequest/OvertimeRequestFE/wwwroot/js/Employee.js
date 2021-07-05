@@ -56,29 +56,42 @@
     console.log();
 });
 function deleted(stringnip) {
-    $.ajax({
-        url: 'https://localhost:44364/API/account/deleteprofile/' + stringnip,
-        type: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    }).done((result) => {
-        $('#tableEmployee').DataTable().ajax.reload();
-        Swal.fire({
-            title: 'Success!',
-            text: 'Data Has Been Deleted',
-            icon: 'success',
-            confirmButtonText: 'Next'
-        })
-    }).fail((error) => {
-        Swal.fire({
-            title: 'Error!',
-            text: 'Data Cannot Deleted',
-            icon: 'Error',
-            confirmButtonText: 'Next'
-        })
-    });
+    Swal.fire({
+        title: 'Yakin ingin menghapus data?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Tidak'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: 'https://localhost:44364/API/account/deleteprofile/' + stringnip,
+                type: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            }).done((result) => {
+                $('#tableEmployee').DataTable().ajax.reload();
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Data Has Been Deleted',
+                    icon: 'success',
+                    confirmButtonText: 'Next'
+                })
+            }).fail((error) => {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Data Cannot Deleted',
+                    icon: 'Error',
+                    confirmButtonText: 'Next'
+                })
+            });
+        }
+    })
+    
 }
 function get(stringnip) {
     $.ajax({
