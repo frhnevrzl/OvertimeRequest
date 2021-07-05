@@ -2,7 +2,6 @@
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
     ViewData["NIP"] = @ViewBag.sessionNip;
 }
-
 <h1>Employee List</h1>
 <table id="tableEmployee" class="table table-responsive table-hover table-bordered">
     <thead>
@@ -61,7 +60,7 @@
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="bodyMChangePass">
-                <form id="formAssignRole" action="javascript:UpdateRoles()">
+                <form id="formAssignRole" action="javascript:">
                     <div class="row">
                         <div class="col-6 my-1">
                             <label for="name" class="col-form-label">Select Role</label>
