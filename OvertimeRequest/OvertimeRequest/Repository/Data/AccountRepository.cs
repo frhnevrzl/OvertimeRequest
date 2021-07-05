@@ -194,23 +194,23 @@ namespace OvertimeRequest.Repository.Data
                 return 0;
         }
 
-        public int UpdateProfile(RegisterVM register)
+        public int UpdateProfile(UpdateProfileVM update)
         {
 
-            Employee employee = conn.Employees.Find(register.NIP);
-            employee.FirstName = register.FirstName;
-            employee.LastName = register.LastName;
-            employee.BirthDate = register.BirthDate;
-            employee.Phone = register.Phone;
-            employee.Email = register.Email;
-            employee.Gender = register.Gender;
-            employee.Religion = register.Religion;
-            employee.DepartmentId = register.DepartmentId;
-            employee.ManagerId = register.ManagerId;
+            Employee employee = conn.Employees.Find(update.NIP);
+            employee.FirstName = update.FirstName;
+            employee.LastName = update.LastName;
+            employee.BirthDate = update.BirthDate;
+            employee.Phone = update.Phone;
+            employee.Email = update.Email;
+            employee.Gender = update.Gender;
+            employee.Religion = update.Religion;
+            employee.DepartmentId = update.DepartmentId;
+            employee.ManagerId = update.ManagerId;
             conn.Update(employee);
 
-            Account account = conn.Accounts.Find(register.NIP);
-            account.Password = Hashing.HashPassword(register.Password.ToString()).ToString();
+            Account account = conn.Accounts.Find(update.NIP);
+            //account.Password = Hashing.HashPassword(register.Password.ToString()).ToString();
             conn.Update(account);
 
             return conn.SaveChanges();

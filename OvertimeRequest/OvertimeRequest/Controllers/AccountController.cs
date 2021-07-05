@@ -143,9 +143,9 @@ namespace OvertimeRequest.Controllers
 
         [EnableCors("AllowOrigin")]
         [HttpPost("UpdateProfile")]
-        public ActionResult UpdateProfile(RegisterVM register)
+        public ActionResult UpdateProfile(UpdateProfileVM update)
         {
-            var put = repo.UpdateProfile(register);
+            var put = repo.UpdateProfile(update);
             if (put > 0)
             {
                 return Ok("Record Changed");

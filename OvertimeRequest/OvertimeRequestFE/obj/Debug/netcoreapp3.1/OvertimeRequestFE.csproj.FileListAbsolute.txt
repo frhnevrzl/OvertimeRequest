@@ -200,3 +200,4 @@ D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreap
 D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
 C:\Users\AmaeSchiffer\source\repos\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\RequestHistory.cshtml.g.cs
+D:\Project\OvertimeRequest\OvertimeRequest\OvertimeRequestFE\obj\Debug\netcoreapp3.1\Razor\Views\Profile\ChangePassword.cshtml.g.cs

@@ -15,7 +15,6 @@
             <th>ManagerID</th>
             <th>RoleId</th>
             <th>Delete</th>
-            <th>Update Password</th>
             <th>Update Role</th>
         </tr>
     </thead>
@@ -23,36 +22,6 @@
     </tbody>
 </table>
 <input id="nip" style="display:none">
-<div class="modal fade" id="modalChangePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="bodyMChangePass">
-                <form id="formPersonUpd" action="javascript:UpdatePassword()">
-                    <div class="row">
-                        <div class="col-6 my-1">
-                            <label for="oldPassword" class="col-form-label">Old Password</label>
-                            <input type="text" class="form-control" id="oldPassword" aria-describedby="oldPasswordHelp" required>
-                            <div id="oldPasswordHelp" class="form-text"></div>
-                        </div>
-                        <div class="col-6 my-1">
-                            <label for="newPassword" class="col-form-label">New Password</label>
-                            <input type="text" class="form-control" id="newPassword" aria-describedby="newPasswordHelp" required>
-                            <div id="newPasswordHelp" class="form-text"></div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button id="UpdateBtn" type="submit" class="btn btn-primary">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="modal fade" id="modalAssignRole" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

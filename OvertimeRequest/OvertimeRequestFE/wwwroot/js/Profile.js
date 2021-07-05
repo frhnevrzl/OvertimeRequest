@@ -9,7 +9,6 @@ $(document).ready(function () {
         $('#LastName').val(result.lastName);
         $('#Phone').val(result.phone);
         var today = new Date(result.birthDate);
-        console.log(result.birthdate);
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth()).padStart(2, '0');
         var yyyy = today.getFullYear();
@@ -38,7 +37,7 @@ function Update() {
     obj.BirthDate = $("#Birthdate").val();
     obj.Salary = ($("#Salary").val());
     obj.Email = $("#Email").val();
-    obj.Password = $("#Password").val();
+/*    obj.Password = $("#Password").val();*/
     obj.Gender = $("#gender").val();
     obj.Religion = $("#religion").val();
     obj.DepartmentId= parseInt($("#departmentId").val());
@@ -131,4 +130,47 @@ function formatDate(param) {
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
     return `${day}-${month}-${year}`;
+}
+
+function get(stringnip) {
+    $.ajax({
+        url: 'https://localhost:44364/API/account/getprofilebyid/' + stringnip,
+        dataSrc: ''
+    }).done((result) => {
+        $("#nip").val(result.nip);
+        /*        $('#oldPassword').val(result.password);*/
+    }).fail((error) => {
+        console.log(error);
+    });
+}
+function UpdatePassword() {
+    var obj = new Object();
+    obj.NIP = $("#nip").val();
+    obj.OldPassword = $("#oldPassword").val();
+    obj.NewPassword = $("#newPassword").val();
+    $.ajax({
+        url: 'https://localhost:44364/API/account/ChangePassword/',
+        type: "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(obj)
+    }).done((result) => {
+        $('#tableEmployee').DataTable().ajax.reload();
+        Swal.fire({
+            title: 'Success!',
+            text: 'Your Data Has Been Updated',
+            icon: 'success',
+            confirmButtonText: 'Next'
+        })
+    }).fail((error) => {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Failed To Update',
+            icon: 'error',
+            confirmButtonText: 'Back'
+        })
+        console.log(error);
+    })
 }
