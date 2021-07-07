@@ -124,17 +124,62 @@
 }
 @if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager")
 {
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-5">
-                <div class="card" id="UnivContainer">
-                    <div class="card-header bg-transparent border-success">My Overtime Request</div>
-                    <div class="card-body">
-                        <div id="MyReqCh"></div>
-                    </div>
+    <div class="row">
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3><span id="lblReq"></span></h3>
+                    <p>My Request</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
                 </div>
             </div>
         </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3><span id="lblApv">2</span></h3>
+
+                    <p>Approved</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3><span id="lblRjc"></span>0</h3>
+
+                    <p>Rejected</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-gradient-lightblue">
+                <div class="inner">
+                    <h3><span id="lblWait"></span>0</h3>
+
+                    <p>Waiting</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
     </div>
 }
 

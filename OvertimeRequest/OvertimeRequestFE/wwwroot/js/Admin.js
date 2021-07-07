@@ -72,3 +72,13 @@ $.ajax({
 }).fail((error) => {
     console.log(error);
 });
+
+$.ajax({
+    url: 'https://localhost:44364/API/overtimeapply/getrequestbynip/' + stringnip,
+    dataSrc: ''
+}).done((result) => {
+    /*    console.log(result.length);*/
+    $("#lblReq").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});
