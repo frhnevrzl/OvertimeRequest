@@ -2,11 +2,11 @@
 var stringnip = $("#nip").val();
 
 $.getJSON(url, function (response) {
-    console.log(response);
+/*    console.log(response);*/
     var data = response.map(item => item.roleName).filter((value, index, self) => self.indexOf(value) === index);
-    console.log(data);
+/*    console.log(data);*/
     var dataCount = response.map(item => item.accountRoles.length);
-    console.log(dataCount);
+/*    console.log(dataCount);*/
     var options = {
         series: [{
             data: dataCount
@@ -33,22 +33,42 @@ $.getJSON(url, function (response) {
     chart.render();
 });
 
-var url2 = 'https://localhost:44364/API/overtimeapply/'
-$.getJSON(url2, function (response) {
-    console.log(response);
-    var data = response.map(item => item.overtimeApplyEmployees.status).filter((value, index, self) => self.indexOf(value) === index);
-    console.log(data);
-    var dataCount = response.map(item => item.overtimeApplyEmployees.length);
-    console.log(dataCount);
+$.ajax({
+    url: 'https://localhost:44364/API/account/Getallprofile/',
+    dataSrc: ''
+}).done((result) => {
+/*    console.log(result.length);*/
+    $("#lblEmp").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});
 
-    var options = {
-        series: dataCount,
-        chart: {
-            type: 'donut'
-        },
-        labels: data
-    };
+$.ajax({
+    url: 'https://localhost:44364/API/overtimeapply/getallrequest/',
+    dataSrc: ''
+}).done((result) => {
+    /*    console.log(result.length);*/
+    $("#lblOvt").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});
 
-    var chart = new ApexCharts(document.querySelector("#ReqCh"), options);
-    chart.render();
+$.ajax({
+    url: 'https://localhost:44364/API/account/Getallprofile/',
+    dataSrc: ''
+}).done((result) => {
+    /*    console.log(result.length);*/
+    $("#lblReg").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});
+
+$.ajax({
+    url: 'https://localhost:44364/API/roles/',
+    dataSrc: ''
+}).done((result) => {
+    /*    console.log(result.length);*/
+    $("#lblRole").html(result.length);
+}).fail((error) => {
+    console.log(error);
 });
