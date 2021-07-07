@@ -38,12 +38,12 @@
             },
             {
                 "render": function (data, type, row) {
-                    return `<button type="button" class="btn btn-danger" onclick="deleted('${row.nip}')"><i class="fa fa-trash" aria-hidden="true"></i></button > `
+                    return `<button type="button" class="btn btn-danger" onclick="deleted('${row.nip}')"><i class="fa fa-trash" aria-hidden="true" data-placement="top" title="Delete"></i></button > `
                 }
             },
             {
                 "render": function (data, type, row) {
-                    return `<button type="button" class="btn btn-info" onclick="get('${row['nip']}')" data-toggle="modal" data-target="#modalAssignRole"><i class="fa fa-edit" aria-hidden="true"></i></button > `
+                    return `<button type="button" class="btn btn-info" onclick="get('${row['nip']}')" data-toggle="modal" data-target="#modalAssignRole"><i class="fa fa-edit" aria-hidden="true" data-placement="top" title="Edit"></i></button > `
                 }
             }
         ]

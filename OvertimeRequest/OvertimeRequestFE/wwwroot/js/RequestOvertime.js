@@ -36,7 +36,7 @@ function AddListOvertime() {
         cell2.innerHTML = `<td><input style="border:none;" name="etime" value="${document.getElementById("stime").value}" readonly></input></td>`;
         cell3.innerHTML = `<td><input style="border:none;" name="etime" value="${document.getElementById("etime").value}" readonly></input></td>`;
         cell4.innerHTML = `<td><input style="border:none;" name="task" value="${document.getElementById("task").value}" readonly></input></td>`;
-        cell5.innerHTML = `<td><button type="button" class="btn btn-info" onclick="deleteItem(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>`
+        cell5.innerHTML = `<td><button type="button" class="btn btn-info" onclick="deleteItem(this)"><i class="fa fa-trash" aria-hidden="true" data-placement="top" title="Delete"></i></button></td>`
         //cell5.innerHTML = `<td><input style="border:none;" name="addintionalSalary" value="${additionalSalary(difference)}" readonly></input><td>`;
         rowIndex = rowIndex + 1;
     }

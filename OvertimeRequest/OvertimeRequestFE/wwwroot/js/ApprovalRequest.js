@@ -59,7 +59,7 @@
             },
             {
                 "render": function (data, type, row) {
-                    return `<button type="button" class="btn btn-info" onclick="detail('${row['overtimeId']}')" data-toggle="modal" data-target="#detailapprove"><i class="fa fa-edit" aria-hidden="true"></i></button > `
+                    return `<button type="button" class="btn btn-info" onclick="detail('${row['overtimeId']}')" data-toggle="modal" data-placement="top" title="Detail" data-target="#detailapprove"><i class="fa fa-edit" aria-hidden="true"></i></button > `
                 }
             }
         ]
@@ -85,6 +85,8 @@ function detail(overtimeid) {
         var durasi = result[0]['additionalSalary'] / 74000 + "jam";
         $("#durasi").val(durasi);
         $("#additionalsalary").val(result[0]['additionalSalary']);
+        $("#stime").val(result[0]['startTime']);
+        $("#etime").val(result[0]['endTime']);
     }).fail((error) => {
         Swal.fire({
             title: 'Error!',
