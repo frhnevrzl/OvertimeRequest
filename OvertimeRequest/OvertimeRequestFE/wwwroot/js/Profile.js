@@ -1,5 +1,13 @@
 ﻿var stringnip = $("#nip").val();
 $(document).ready(function () {
+    $.get("https://localhost:44364/API/account/GetProfile?roleId=2", function (data) {
+        console.log(data);
+        if (data) {
+            data.forEach(function (result) {
+                $("#inputManagerId").append(`<option value="${result.nip}">${result.firstName} ${result.lastName}</option>`);
+            });
+        }
+    });
     $.ajax({
         url: 'https://localhost:44364/API/account/GetProfileById/' + stringnip,
         dataSrc: ''
@@ -26,6 +34,12 @@ $(document).ready(function () {
         console.log(error);
     });
     console.log(stringnip);
+
+    
+});
+
+$("#inputManagerId").on("change", function () {
+    console.log($(this).find("option:selected").val());
 });
    
 function Update() {
@@ -41,7 +55,7 @@ function Update() {
     obj.Gender = $("#gender").val();
     obj.Religion = $("#religion").val();
     obj.DepartmentId= parseInt($("#departmentId").val());
-    obj.ManagerId= parseInt($("#inputManagerId").val());
+    obj.ManagerId= parseInt($("#inputManagerId option:selected").val());
 
     $.ajax({
         url: 'https://localhost:44364/API/account/updateprofile/',

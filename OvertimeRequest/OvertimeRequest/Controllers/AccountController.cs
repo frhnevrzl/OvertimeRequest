@@ -51,6 +51,21 @@ namespace OvertimeRequest.Controllers
                 return NotFound("Data tidak Ada");
             }
         }
+
+        [HttpGet("GetProfile")]
+        public ActionResult GetAllProfileByRole([FromQuery(Name = "roleId")] string roleId)
+        {
+            var get = repo.GetAllProfileByRole(int.Parse(roleId));
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+            {
+                return NotFound("Data tidak Ada");
+            }
+        }
+
         //[Authorize(Roles = "Admin")]
         [HttpGet("GetProfileById/{nip}")]
         public ActionResult GetProfileById(int nip)

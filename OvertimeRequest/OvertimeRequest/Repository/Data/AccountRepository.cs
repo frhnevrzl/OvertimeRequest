@@ -52,14 +52,31 @@ namespace OvertimeRequest.Repository.Data
             claims.Add(new Claim("TokenSecurity", tokenwrite.ToString()));
             return tokenwrite;
         }
+
+        public String getThisYear()
+        {
+            return DateTime.Now.ToString("yyyy");
+        }
         public int Register(RegisterVM register)
         {
             var result = 0;
             var check = conn.Employees.FirstOrDefault(p => p.Email == register.Email);
+            var cekNIP = conn.Employees.Where(e => e.NIP.ToString().Contains(getThisYear())).ToList();
+            var NIPEmployee = 0;
+            if(cekNIP.Count > 0)
+            {
+                var splitted = cekNIP[cekNIP.Count - 1].NIP.ToString().Split(getThisYear());
+                NIPEmployee = int.Parse(getThisYear() + (int.Parse(splitted[splitted.Length - 1]) + 1));
+            }
+            else
+            {
+                NIPEmployee = int.Parse(getThisYear() + 1);
+            }
             if (check == null)
             {
                 Employee employee = new Employee
                 {
+                    NIP = NIPEmployee,
                     FirstName = register.FirstName,
                     LastName = register.LastName,
                     BirthDate = register.BirthDate,
@@ -145,6 +162,32 @@ namespace OvertimeRequest.Repository.Data
                     ManagerId = e.ManagerId,
                     RoleId = ar.RoleId,
                     Password = ar.Account.Password  
+                }).ToList();
+            return all;
+        }
+
+        public IEnumerable<RegisterVM> GetAllProfileByRole(int roleId)
+        {
+            var all = (
+                from e in conn.Employees
+                join a in conn.Accounts on e.NIP equals a.AccountId
+                join ar in conn.AccountRoles on a.AccountId equals ar.AccountId
+                where ar.RoleId == roleId
+                select new RegisterVM
+                {
+                    NIP = e.NIP,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    BirthDate = e.BirthDate,
+                    Gender = e.Gender,
+                    Religion = e.Religion,
+                    Salary = e.Salary,
+                    Email = e.Email,
+                    Phone = e.Phone,
+                    DepartmentId = e.DepartmentId,
+                    ManagerId = e.ManagerId,
+                    RoleId = ar.RoleId,
+                    Password = ar.Account.Password
                 }).ToList();
             return all;
         }
