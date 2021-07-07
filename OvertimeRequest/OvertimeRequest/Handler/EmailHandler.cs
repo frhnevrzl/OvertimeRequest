@@ -74,15 +74,38 @@ namespace OvertimeRequest.Handler
             smtp.Send(mm);
         }
 
-        public void SendApproveNotificationToEmployee(string email)
+        public void SendApproveNotificationToEmployeebyManager(string email)
         {
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
 
             MailMessage mm = new MailMessage("utimarutiiii@gmail.com", email)
             {
-                Subject = "Approval Result - " + time24 + ",",
-                Body = "Hi," + "<br/> Your approval Has Been Approved",
+                Subject = "Manager Approval Result - " + time24 + ",",
+                Body = "Hi," + "<br/> Your approval Has Been Approved By Manager <br/> Please Wait for Approval From Finance Dept",
+
+                IsBodyHtml = true
+            };
+            SmtpClient smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                EnableSsl = true
+            };
+            NetworkCredential NetworkCred = new NetworkCredential("utimarutiiii@gmail.com", "ImNumber1234");
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = NetworkCred;
+            smtp.Port = 587;
+            smtp.Send(mm);
+        }
+        public void SendApproveNotificationToEmployeebyFinance(string email)
+        {
+            var time24 = DateTime.Now.ToString("HH:mm:ss");
+
+
+            MailMessage mm = new MailMessage("utimarutiiii@gmail.com", email)
+            {
+                Subject = "Finance Approval Result on Your Overtime Rquest" + time24 + ",",
+                Body = "Hi," + "<br/> Your approval Has Been Approved By Manager <br/>",
 
                 IsBodyHtml = true
             };
@@ -105,7 +128,7 @@ namespace OvertimeRequest.Handler
 
             MailMessage mm = new MailMessage("utimarutiiii@gmail.com", email)
             {
-                Subject = "Approval Result - " + time24 + ",",
+                Subject = "Approval Result on Your Overtime Request - " + time24 + ",",
                 Body = "Hi," + "<br/> Your approval Has Been Rejected",
 
                 IsBodyHtml = true

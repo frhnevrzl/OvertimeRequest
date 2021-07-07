@@ -23,20 +23,20 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="https://localhost:44308/" class="nav-link">Home</a>
-                </li>
+                @*<li class="nav-item d-none d-sm-inline-block">
+                    <a href="~/home/index" class="nav-link">Dashboard</a>
+                </li>*@
             </ul>
             <!-- Right navbar links -->
             <div class="navbar-nav ml-auto">
-                <a class="btn btn-danger" href="/login/logout/">Sign Out</a>
+                <p>Hi, @ViewBag.sessionFName @ViewBag.sessionLName</p>
             </div>
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="https://localhost:44308/" class="brand-link">
+            <a href="~/home/index" class="brand-link">
                 <img src="~/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Overtime Request</span>
             </a>
@@ -50,12 +50,13 @@
                         @if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager" || ViewBag.sessionRole == "Finance" || ViewBag.sessionRole == "Admin")
                         {
 
-                            <a href="#" class="nav-link">
-                                <i class="far fa-address-card mr-2"></i>
-                                <p>
-                                    Profile
-                                </p>
-                            </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-user mr-2"></i>
+                            <p>
+                                Profile
+                            </p>
+                            <i class="right fas fa-caret-down ml-1"></i>
+                        </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="~/profile/index" class="nav-link">
@@ -66,16 +67,17 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Change Password</p>
                                     </a>
-                                    @if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager")
-                                    {
-                                        <a href="~/profile/requesthistory" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Request History</p>
-                                        </a>
-                                    }
-
                                 </li>
                             </ul>
+                        }
+                    </li>
+                    <li class="nav-item">
+                        @if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager")
+                        {
+                            <a href="~/profile/requesthistory" class="nav-link">
+                                <i class="fas fa-history mr-2"></i>
+                                <p>Request History</p>
+                            </a>
                         }
                     </li>
                     @if (ViewBag.sessionRole == "Admin")
@@ -86,6 +88,7 @@
                                 <p>
                                     Administering
                                 </p>
+                                <i class="right fas fa-caret-down"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -101,10 +104,11 @@
                     {
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-tachometer-alt mr-2"></i>
+                                <i class="fas fa-tasks mr-2"></i>
                                 <p>
                                     Apply Overtime
                                 </p>
+                                <i class="right fas fa-caret-down ml-1"></i>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -127,6 +131,12 @@
                             </ul>
                         </li>
                     }
+                <li class="nav-item">
+                    <a href="/login/logout" class="nav-link">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+                        <p>Log Out</p>
+                    </a>
+                </li>
 
                 </ul>
             </div>
@@ -164,10 +174,10 @@
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
-                Anything you want
+                @*Anything you want*@
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            @*<strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.*@
         </footer>
     </div>
     <script src="~/plugins/jquery/jquery.min.js"></script>

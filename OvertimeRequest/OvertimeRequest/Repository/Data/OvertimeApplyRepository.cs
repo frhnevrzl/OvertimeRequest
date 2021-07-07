@@ -268,12 +268,12 @@ namespace OvertimeRequest.Repository.Data
             if (approvalVM.Status == 1)
             {
                 overtimeApplyEmployee.Status = StatusRequest.ApproveByManager;
-                sendEmail.SendApproveNotificationToEmployee(overtimeApplyEmployee.Email);
+                sendEmail.SendApproveNotificationToEmployeebyManager(overtimeApplyEmployee.Email);
             }
             else if (approvalVM.Status == 2)
             {
                 overtimeApplyEmployee.Status = StatusRequest.ApproveByFinance;
-                sendEmail.SendApproveNotificationToEmployee(overtimeApplyEmployee.Email);
+                sendEmail.SendApproveNotificationToEmployeebyFinance(overtimeApplyEmployee.Email);
             }
             else if (approvalVM.Status == 3)
             {

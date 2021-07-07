@@ -8,11 +8,11 @@
 <div class="container">
     <div>
         <p class="text-center">
-            <H3>Selamat Datang @ViewData["FirstName"] @ViewData["LastName"] Di Aplikasi Overtime Request</H3>
-            <h4>NIP Anda : @ViewData["NIP"]</h4>
+            <H3>Selamat Datang Di Aplikasi Overtime Request</H3>
         </p>
     </div>
 </div>
+<input id="nip" style="display:none" value="@ViewData["NIP"]">
 @if (ViewBag.sessionRole == "Admin")
 {
     <div class="container-fluid">
@@ -22,6 +22,21 @@
                     <div class="card-header bg-transparent border-success">Role Chart</div>
                     <div class="card-body">
                         <div id="UniCh"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (ViewBag.sessionRole == "Employee" || ViewBag.sessionRole == "Manager")
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+                <div class="card" id="UnivContainer">
+                    <div class="card-header bg-transparent border-success">My Overtime Request</div>
+                    <div class="card-body">
+                        <div id="MyReqCh"></div>
                     </div>
                 </div>
             </div>

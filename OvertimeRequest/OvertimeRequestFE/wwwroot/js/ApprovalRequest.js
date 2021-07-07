@@ -33,6 +33,9 @@
                 /*"data": 'submissionDate'*/
             },
             {
+                "data" : 'task'
+            },
+            {
 /*                "data": 'status'*/
                 "render": function (data, type, row) {
                     if (row.status != null) {
