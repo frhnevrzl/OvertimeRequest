@@ -85,8 +85,8 @@ function detail(overtimeid) {
         var durasi = result[0]['additionalSalary'] / 74000 + "jam";
         $("#durasi").val(durasi);
         $("#additionalsalary").val(result[0]['additionalSalary']);
-        $("#stime").val(result[0]['startTime']);
-        $("#etime").val(result[0]['endTime']);
+        $("#stime").val(formatHour(result[0]['startTime']));
+        $("#etime").val(formatHour(result[0]['endTime']));
     }).fail((error) => {
         Swal.fire({
             title: 'Error!',
@@ -175,6 +175,16 @@ function formatDate(param) {
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
     return `${day}-${month}-${year}`;
+}
+function formatHour(param) {
+    var date = new Date(param);
+    var hour = String(date.getHours());
+    var min = String(date.getMinutes());
+    var sec = String(date.getSeconds());
+    if (hour.length < 2) hour = '0' + hour;
+    if (min.length < 2) min = '0' + min;
+    if (sec.length < 2) sec = '0' + sec;
+    return `${hour}:${min}:${sec}`;
 }
 
 ////
