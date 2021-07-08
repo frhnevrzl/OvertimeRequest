@@ -1,6 +1,8 @@
 ﻿@{
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
     ViewData["NIP"] = @ViewBag.sessionNip;
+    ViewData["FirstName"] = @ViewBag.sessionFName;
+    ViewData["LastName"] = @ViewBag.sessionLName;
 }
     <input id="nip" style="display:none" value="@ViewData["NIP"]">
     <h2>My Profile</h2>

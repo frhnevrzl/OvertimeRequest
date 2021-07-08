@@ -2,6 +2,8 @@
     Layout = "~/Views/Shared/AdminLTE/_Layout2.cshtml";
     ViewData["NIP"] = @ViewBag.sessionNip;
     ViewData["Email"] = @ViewBag.sessionEmail;
+    ViewData["FirstName"] = @ViewBag.sessionFName;
+    ViewData["LastName"] = @ViewBag.sessionLName;
 }
 <input id="nips" style="display:none" value="@ViewData["NIP"]">
 <input id="emails" style="display:none" value="@ViewData["Email"]">

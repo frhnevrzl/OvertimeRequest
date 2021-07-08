@@ -82,3 +82,33 @@ $.ajax({
 }).fail((error) => {
     console.log(error);
 });
+
+$.ajax({
+    url: 'https://localhost:44364/api/overtimeapply/GetAllRequestByStatusAndNip?status=2&nip=' + stringnip,
+    dataSrc: ''
+}).done((result) => {
+    /*    console.log(result.length);*/
+    $("#lblApv").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});
+
+$.ajax({
+    url: 'https://localhost:44364/api/overtimeapply/GetAllRequestByStatusAndNip?status=3&nip=' + stringnip,
+    dataSrc: ''
+}).done((result) => {
+    /*    console.log(result.length);*/
+    $("#lblRjc").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});
+
+$.ajax({
+    url: 'https://localhost:44364/api/overtimeapply/GetAllRequestByStatusAndNip?status=0&nip=' + stringnip,
+    dataSrc: ''
+}).done((result) => {
+    /*    console.log(result.length);*/
+    $("#lblWait").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});

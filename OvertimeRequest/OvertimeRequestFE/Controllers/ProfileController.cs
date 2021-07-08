@@ -22,6 +22,8 @@ namespace OvertimeRequestFE.Controllers
             ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
             ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;
             ViewBag.sessionNip = tokenS.Claims.First(claim => claim.Type == "NIP").Value;
+            ViewBag.sessionFName = tokenS.Claims.First(claim => claim.Type == "FirstName").Value;
+            ViewBag.sessionLName = tokenS.Claims.First(claim => claim.Type == "LastName").Value;
             ViewData["Role"] = ViewBag.sessionRole;
             if (ViewBag.sessionEmail != null)
             {
@@ -54,6 +56,8 @@ namespace OvertimeRequestFE.Controllers
             ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
             ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;
             ViewBag.sessionNip = tokenS.Claims.First(claim => claim.Type == "NIP").Value;
+            ViewBag.sessionFName = tokenS.Claims.First(claim => claim.Type == "FirstName").Value;
+            ViewBag.sessionLName = tokenS.Claims.First(claim => claim.Type == "LastName").Value;
 
             if (ViewBag.sessionEmail != null)
             {
@@ -81,6 +85,8 @@ namespace OvertimeRequestFE.Controllers
             ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
             ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;
             ViewBag.sessionNip = tokenS.Claims.First(claim => claim.Type == "NIP").Value;
+            ViewBag.sessionFName = tokenS.Claims.First(claim => claim.Type == "FirstName").Value;
+            ViewBag.sessionLName = tokenS.Claims.First(claim => claim.Type == "LastName").Value;
 
             if (ViewBag.sessionEmail != null)
             {

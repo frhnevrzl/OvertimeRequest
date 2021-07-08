@@ -156,5 +156,17 @@ namespace OvertimeRequest.Controllers
                 return NotFound("No Record");
         }
 
+        [HttpGet("GetAllRequestByStatusAndNip")]
+        public ActionResult GetAllRequestByStatusAndNip([FromQuery(Name = "status")] int status, [FromQuery(Name = "nip")] int Nip)
+        {
+            var get = repo.GetAllRequestByStatusAndNip(status, Nip);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+                return NotFound("No Record");
+        }
+
     }
 }
