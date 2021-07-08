@@ -102,7 +102,7 @@ namespace OvertimeRequest.Repository.Data
                 AccountRole accountRole = new AccountRole
                 {
                     AccountId = account.AccountId,
-                    RoleId = 3
+                    RoleId = 1
                 };
                 conn.Add(accountRole);
                 result = conn.SaveChanges();
